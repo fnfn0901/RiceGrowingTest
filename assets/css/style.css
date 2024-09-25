@@ -8,6 +8,11 @@
     src: url('../fonts/Freesentation-5Medium.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Freesentation-4Regular';
+    src: url('../fonts/Freesentation-4Regular.ttf') format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -116,9 +121,9 @@ body {
 .copy-success {
     display: none; /* 기본적으로 숨김 */
     position: absolute;
-    top: calc(100% + 10px); /* 참여자 수 텍스트 아래로 10px 간격 설정 */
+    top: -16px; /* 참여자 수 텍스트 아래로 10px 간격 설정 */
     left: 50%; /* 링크 복사 버튼의 중앙에 맞추기 */
-    transform: translateX(-50%); /* 중앙 정렬 */
+    transform: translateX(5%); /* 중앙 정렬 */
     width: 100px;
     height: 30px; /* 메시지의 전체 크기 */
     padding: 4px; /* 내부 여백 조정 */
@@ -142,7 +147,7 @@ body {
 .copy-success-text {
     color: #000;
     text-align: center;
-    font-family: 'Freesentation';
+    font-family: 'Freesentation-4Regular';
     font-size: 12px;
     font-weight: 400;
     line-height: normal;
