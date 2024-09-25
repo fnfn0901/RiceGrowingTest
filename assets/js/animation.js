@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const playButton = document.querySelector('.play-button');
     const copyLinkButton = document.getElementById('copy-link-btn');
     const copySuccessMessage = document.getElementById('copy-success');
 
+    playButton.addEventListener('click', function() {
+        window.location.href = 'question.html'; // 질문 화면 파일로 이동
+    });
+    
     copySuccessMessage.style.display = 'none'; // 처음에 메시지를 숨김
 
     copyLinkButton.addEventListener('click', function() {
