@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'DOSSaemmul';
+    src: url('../fonts/DOSSaemmul.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DOSSaemmul', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFF;
+}
+
+.container {
+    width: 375px;
+    height: 812px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* 진행률 창 */
+.progress-bar {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px; /* 하트 간 간격 */
+    margin-top: 77px; /* 화면 상단과 진행률 창 간격 */
+    margin-bottom: 32px; /* 진행률 창과 이미지 창 간격 */
+}
+
+/* 이미지 창 */
+.image-box {
+    width: 375px;
+    height: 228px;
+    background-color: #D9D9D9;
+    margin-bottom: 28px; /* 이미지 창과 질문 창 간격 */
+    flex-shrink: 0;
+}
+
+/* 질문 창 */
+.question-box {
+    display: flex;
+    width: 342px;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    margin-bottom: 80px; /* 질문 창과 선택 A 창 간격 */
+}
+
+.question-text {
+    width: 312px;
+    color: #000;
+    font-family: 'DOSSaemmul'; /* 폰트 경로 반영 */
+    font-size: 22px; /* 질문 텍스트 사이즈 */
+    font-weight: 500;
+    line-height: normal;
+}
+
+.question-icon {
+    width: 10px;
+    height: 20px;
+    position: absolute;
+    left: 322px;
+    top: 34px;
+}
+
+/* 선택지 창 */
+.choice {
+    display: flex;
+    justify-content: center; /* 텍스트를 가로 중앙 정렬 */
+    align-items: center;     /* 텍스트를 세로 중앙 정렬 */
+    width: 284.606px;
+    height: 76.19px;
+    flex-shrink: 0;
+    margin-bottom: 32px; /* 선택 A 창과 선택 B 창 간격 */
+    position: relative;
+}
+
+.choice:last-of-type {
+    margin-bottom: 141.62px; /* 선택 B 창과 화면 하단 간격 */
+}
+
+.choice img {
+    position: absolute; /* 이미지가 박스 내부에서 고정된 위치에 배치 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* 이미지가 박스 크기에 맞게 조정됨 */
+}
+
+.choice-text {
+    z-index: 1; /* 텍스트가 이미지 위에 표시되도록 설정 */
+    width: 243px;
+    color: #000;
+    font-family: 'DOSSaemmul'; /* 폰트 경로 반영 */
+    font-size: 16px; /* 선택지 텍스트 사이즈 */
+    font-weight: 500;
+    line-height: 24px;
+}
