@@ -44,12 +44,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let currentQuestionIndex = 0;
     const totalQuestions = questions.length;
+    let clickable = true;  // 클릭 가능 여부 플래그
     
     const questionText = document.querySelector('.question-text');
     const imageBox = document.querySelector('.image-box img');
     const choiceA = document.querySelector('.choice-a .choice-text');
     const choiceB = document.querySelector('.choice-b .choice-text');
     const hearts = document.querySelectorAll('.progress-bar img');
+    const choiceABox = document.querySelector('.choice-a');
+    const choiceBBox = document.querySelector('.choice-b');
 
     function updateQuestion() {
         const currentQuestion = questions[currentQuestionIndex];
@@ -66,6 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 hearts[i].src = './assets/images/emptyHeart.svg';
             }
         }
+
+        // 선택지 초기화
+        resetChoices();
+        clickable = true;  // 질문 업데이트 후 다시 클릭 가능하게 설정
     }
 
     function nextQuestion() {
@@ -78,14 +85,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    document.querySelector('.choice-a').addEventListener('click', function() {
-        console.log('A 선택됨');
-        nextQuestion();
+    function handleChoiceSelection(choiceBox, choiceText) {
+        if (!clickable) return; // 클릭 불가능할 때는 함수 종료
+        clickable = false;  // 클릭을 잠금
+
+        // 선택된 이미지와 텍스트 스타일 변경
+        choiceBox.querySelector('img').src = './assets/images/selected.png';
+        choiceText.style.color = '#ffffff';
+
+        // 1초 후에 다음 질문으로 이동
+        setTimeout(nextQuestion, 1000);
+    }
+
+    function resetChoices() {
+        // 선택지의 스타일 및 이미지 원래대로 초기화
+        choiceABox.querySelector('img').src = './assets/images/unselected.png';
+        choiceA.style.color = '#000000';
+
+        choiceBBox.querySelector('img').src = './assets/images/unselected.png';
+        choiceB.style.color = '#000000';
+    }
+
+    // 선택 A 클릭 이벤트
+    choiceABox.addEventListener('click', function() {
+        handleChoiceSelection(choiceABox, choiceA);
     });
 
-    document.querySelector('.choice-b').addEventListener('click', function() {
-        console.log('B 선택됨');
-        nextQuestion();
+    // 선택 B 클릭 이벤트
+    choiceBBox.addEventListener('click', function() {
+        handleChoiceSelection(choiceBBox, choiceB);
     });
 
     // 첫 번째 질문을 화면에 표시
