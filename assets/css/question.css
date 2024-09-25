@@ -14,17 +14,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* 화면 높이에 맞추도록 설정 */
     background-color: #FFF;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    width: 375px;
-    height: 812px;
+    width: 100%;
+    max-width: 375px; /* 최대 가로 크기를 설정 */
     display: flex;
     flex-direction: column;
+    justify-content: center; /* 콘텐츠를 수직 중앙에 배치 */
     align-items: center;
-    justify-content: flex-start;
+    min-height: 100vh; /* 기기 높이에 맞춰 중앙 정렬 */
+    padding: 16px 0; /* 상하 패딩을 추가 */
+    box-sizing: border-box; /* 패딩이 레이아웃에 영향을 주지 않도록 설정 */
 }
 
 /* 진행률 창 */
@@ -33,17 +38,17 @@ body {
     justify-content: center;
     align-items: center;
     gap: 4px; /* 하트 간 간격 */
-    margin-top: 77px; /* 화면 상단과 진행률 창 간격 */
-    margin-bottom: 32px; /* 진행률 창과 이미지 창 간격 */
+    margin-top: 77px; /* 원래 간격 유지 */
+    margin-bottom: 32px; /* 원래 간격 유지 */
 }
 
 /* 이미지 창 */
 .image-box {
-    width: 375px;
-    height: 228px;
+    width: 375px; /* 고정된 크기를 유지 */
+    height: 228px; /* 고정된 크기를 유지 */
     background-color: #D9D9D9;
-    margin-bottom: 28px; /* 이미지 창과 질문 창 간격 */
     flex-shrink: 0;
+    margin-bottom: 28px; /* 이미지 창과 질문 창 간격 고정 */
 }
 
 /* 질문 창 */
@@ -53,7 +58,7 @@ body {
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
-    margin-bottom: 80px; /* 질문 창과 선택 A 창 간격 */
+    margin-bottom: 80px; /* 질문 창과 선택 A 창 간격 고정 */
 }
 
 .question-text {
@@ -81,12 +86,12 @@ body {
     width: 284.606px;
     height: 76.19px;
     flex-shrink: 0;
-    margin-bottom: 32px; /* 선택 A 창과 선택 B 창 간격 */
+    margin-bottom: 32px; /* 선택 A 창과 선택 B 창 간격 고정 */
     position: relative;
 }
 
 .choice:last-of-type {
-    margin-bottom: 141.62px; /* 선택 B 창과 화면 하단 간격 */
+    margin-bottom: 141.62px; /* 선택 B 창과 화면 하단 간격 고정 */
 }
 
 .choice img {
