@@ -113,6 +113,41 @@ body {
     margin-top: 8px;
 }
 
+.copy-success {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute;
+    top: calc(100% + 10px); /* 참여자 수 텍스트 아래로 10px 간격 설정 */
+    left: 50%; /* 링크 복사 버튼의 중앙에 맞추기 */
+    transform: translateX(-50%); /* 중앙 정렬 */
+    width: 100px;
+    height: 30px; /* 메시지의 전체 크기 */
+    padding: 4px; /* 내부 여백 조정 */
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 0.5px solid #000;
+    background: #FFF;
+    display: flex; /* flex 레이아웃 적용 */
+    z-index: 10; /* 다른 요소들보다 위에 표시 */
+}
+
+.copy-check-icon {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    fill: #56E867;
+    margin-right: 4px; /* 아이콘과 텍스트 간격을 4px로 설정 */
+}
+
+.copy-success-text {
+    color: #000;
+    text-align: center;
+    font-family: 'Freesentation';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+}
+
 @keyframes slide-down {
     0% {
         transform: translateY(-200%); /* 더 위에서 시작 */
