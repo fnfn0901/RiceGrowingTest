@@ -123,7 +123,7 @@ body {
     100% {
         transform: translateY(-10px); /* 살짝 튕김 */
     }
-    95% {
+    100% {
         transform: translateY(0); /* 원래 자리로 쿵 내려옴 */
     }
 }
