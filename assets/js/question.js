@@ -1,3 +1,16 @@
+function typeText(element, text, speed) {
+    let i = 0;
+    element.innerHTML = ""; // 텍스트 초기화
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            element.innerHTML = text.substring(0, i + 1); // 한 글자씩 나타남
+            i++;
+        } else {
+            clearInterval(interval); // 모든 글자가 출력되면 타이머 중지
+        }
+    }, speed); // speed: 각 글자가 나타나는 간격 (밀리초)
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const questions = [
         {
@@ -49,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let currentQuestionIndex = 0;
     const totalQuestions = questions.length;
-    let clickable = true;
+    let clickable = true;  // 클릭 가능 여부 플래그
 
     const questionText = document.querySelector('.question-text');
     const imageBox = document.querySelector('.image-box img');
@@ -61,11 +74,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateQuestion() {
         const currentQuestion = questions[currentQuestionIndex];
-        questionText.innerHTML = currentQuestion.question;
         imageBox.src = currentQuestion.image;
+        typeText(questionText, currentQuestion.question, 100); // 한 글자씩 나타나도록
         choiceA.innerHTML = currentQuestion.choices[0];
         choiceB.innerHTML = currentQuestion.choices[1];
 
+        // 진행률 하트 업데이트
         for (let i = 0; i < hearts.length; i++) {
             if (i <= currentQuestionIndex) {
                 hearts[i].src = './assets/images/filledHeart.svg';
@@ -74,8 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
+        // 선택지 초기화
         resetChoices();
-        clickable = true;
+        clickable = true;  // 질문 업데이트 후 다시 클릭 가능하게 설정
     }
 
     function nextQuestion() {
@@ -84,24 +99,24 @@ document.addEventListener('DOMContentLoaded', function() {
             updateQuestion();
         } else {
             console.log('모든 질문이 완료되었습니다.');
+            // 테스트 완료 후 결과 화면으로 이동하는 로직 추가
         }
     }
 
     function handleChoiceSelection(choiceBox, choiceText) {
-        if (!clickable) return;
-        clickable = false;
+        if (!clickable) return; // 클릭 불가능할 때는 함수 종료
+        clickable = false;  // 클릭을 잠금
 
-        choiceBox.classList.add('selected');
+        // 선택된 이미지와 텍스트 스타일 변경
         choiceBox.querySelector('img').src = './assets/images/selected.png';
         choiceText.style.color = '#ffffff';
 
-        setTimeout(function() {
-            choiceBox.classList.remove('selected');
-            nextQuestion();
-        }, 1000);
+        // 1초 후에 다음 질문으로 이동
+        setTimeout(nextQuestion, 1000);
     }
 
     function resetChoices() {
+        // 선택지의 스타일 및 이미지 원래대로 초기화
         choiceABox.querySelector('img').src = './assets/images/unselected.png';
         choiceA.style.color = '#000000';
 
@@ -109,13 +124,16 @@ document.addEventListener('DOMContentLoaded', function() {
         choiceB.style.color = '#000000';
     }
 
+    // 선택 A 클릭 이벤트
     choiceABox.addEventListener('click', function() {
         handleChoiceSelection(choiceABox, choiceA);
     });
 
+    // 선택 B 클릭 이벤트
     choiceBBox.addEventListener('click', function() {
         handleChoiceSelection(choiceBBox, choiceB);
     });
 
+    // 첫 번째 질문을 화면에 표시
     updateQuestion();
 });

@@ -71,10 +71,10 @@ body {
     line-height: 30px;
     min-height: 90px;
     max-height: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     white-space: normal;
+    text-align: left; /* 텍스트를 왼쪽 정렬 */
+    display: block;
+    position: relative; /* 텍스트 위치가 고정되도록 */
 }
 
 .question-icon {
