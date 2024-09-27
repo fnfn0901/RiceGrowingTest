@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* 화면 높이에 맞추도록 설정 */
+    min-height: 100vh;
     background-color: #FFF;
     margin: 0;
     padding: 0;
@@ -25,11 +25,11 @@ body {
     max-width: 375px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 콘텐츠를 수직 중앙에 배치 */
+    justify-content: center;
     align-items: center;
-    min-height: 100vh; /* 기기 높이에 맞춰 중앙 정렬 */
-    padding: 16px 0; /* 상하 패딩을 추가 */
-    box-sizing: border-box; /* 패딩이 레이아웃에 영향을 주지 않도록 설정 */
+    min-height: 100vh;
+    padding: 16px 0;
+    box-sizing: border-box;
 }
 
 /* 진행률 창 */
@@ -37,7 +37,7 @@ body {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    gap: 4px; /* 하트 간 간격 */
+    gap: 4px;
     margin-top: 77px;
     margin-bottom: 32px;
 }
@@ -65,16 +65,16 @@ body {
 .question-text {
     width: 312px;
     color: #000;
-    font-family: 'DOSSaemmul'; /* 폰트 경로 반영 */
+    font-family: 'DOSSaemmul';
     font-size: 22px;
     font-weight: 500;
-    line-height: 30px; /* 줄 간격 */
-    min-height: 90px; /* 세 줄 기준으로 최소 높이 설정 */
+    line-height: 30px;
+    min-height: 90px;
     max-height: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
-    white-space: normal; /* 필요한 경우 줄넘김 허용 */
+    white-space: normal;
 }
 
 .question-icon {
@@ -82,7 +82,7 @@ body {
     height: 10px;
     position: absolute;
     right: 0;
-    bottom: 0; /* 텍스트 박스의 하단에 맞추도록 수정 */
+    bottom: 0;
 }
 
 /* 선택지 창 */
@@ -93,29 +93,37 @@ body {
     width: 284.606px;
     height: 76.19px;
     flex-shrink: 0;
-    margin-bottom: 32px; /* 선택 A 창과 선택 B 창 간격 고정 */
+    margin-bottom: 32px;
     position: relative;
+    transition: filter 0.2s ease; /* 클릭 시 부드럽게 그림자 변경 */
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5)); /* 오른쪽과 아래에 더 진한 그림자 */
 }
 
 .choice:last-of-type {
-    margin-bottom: 141.62px; /* 선택 B 창과 화면 하단 간격 고정 */
+    margin-bottom: 141.62px;
 }
 
 .choice img {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* 이미지가 박스 크기에 맞게 조정됨 */
+    object-fit: cover;
+    pointer-events: none; /* 이미지를 클릭할 수 없게 설정 */
 }
 
 /* 선택지 텍스트 */
 .choice-text {
-    z-index: 1; /* 텍스트가 이미지 위에 표시되도록 설정 */
+    z-index: 1;
     width: 243px;
     color: #000;
     font-family: 'DOSSaemmul';
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
-    white-space: normal; /* 필요한 경우 줄넘김 허용 */
+    white-space: normal;
+}
+
+/* 선택 시 그림자가 사라지면서 눌린 효과 */
+.choice.selected {
+    filter: none; /* 클릭 시 그림자가 없어지면서 눌린 느낌을 줌 */
 }
