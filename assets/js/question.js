@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             question: '올해도 풍년입니다 ! 수확한 쌀을 어떻게 활용할까요?',
             image: './assets/images/question05.png',
-            choices: ['A. 특별한 요리를 도전해 볼까? 쌀 아이스크림이나 쌀 피자는 어때?', 'B. 쌀은 나눌 때 더 맛있지! 이웃들과 나눠 먹으면 좋겠어.']
+            choices: ['A. 특별한 요리를 도전해 볼까? 쌀 젤라또나 쌀 피자는 어때?', 'B. 쌀은 나눌 때 더 맛있지! 이웃들과 나눠 먹으면 좋겠어.']
         },
         {
             question: `농사 성공을 축하하는 파티를 열려고 합니다.<br>어떤 스타일로 열까요?`,
