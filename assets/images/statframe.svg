@@ -1,0 +1,19 @@
+<svg width="200" height="250" viewBox="0 0 200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.5 1.5H198.5V248.5H1.5V1.5Z" fill="white" stroke="#347928" stroke-width="3"/>
+<rect x="198.5" width="1.5" height="1.5" fill="#C0EBA6"/>
+<rect x="197" width="1.5" height="1.5" fill="#C0EBA6"/>
+<rect x="198.5" y="1.5" width="1.5" height="1.5" fill="#C0EBA6"/>
+<rect x="197" y="1.5" width="1.5" height="1.5" fill="#347928"/>
+<rect width="1.5" height="1.5" fill="white"/>
+<rect x="1.5" y="1.5" width="1.5" height="1.5" fill="#347928"/>
+<rect y="1.5" width="1.5" height="1.5" fill="white"/>
+<rect x="1.5" width="1.5" height="1.5" fill="white"/>
+<rect x="198.5" y="248.5" width="1.5" height="1.5" fill="#C0EBA6"/>
+<rect x="197" y="248.5" width="1.5" height="1.5" fill="#C0EBA6"/>
+<rect x="197" y="247" width="1.5" height="1.5" fill="#347928"/>
+<rect x="198.5" y="247" width="1.5" height="1.5" fill="#C0EBA6"/>
+<rect y="248.5" width="1.5" height="1.5" fill="#C0EBA6"/>
+<rect x="1.5" y="247" width="1.5" height="1.5" fill="#347928"/>
+<rect x="1.5" y="248.5" width="1.5" height="1.5" fill="#C0EBA6"/>
+<rect y="247" width="1.5" height="1.5" fill="#C0EBA6"/>
+</svg>
