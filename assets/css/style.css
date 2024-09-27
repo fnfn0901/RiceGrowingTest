@@ -23,15 +23,41 @@ body {
     font-family: 'DOSMyungjo', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start; /* 상단에 위치하게 변경 */
+    height: auto; /* 100vh에서 auto로 변경 */
+    margin-top: 0px; /* 상단 여백 설정 */
+}
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 0px;/* 모바일에서는 상단에 위치 */
+    }
+    
+    .container {
+        margin-top: 0px;
+    }
+}
+
+/* 컴퓨터 화면에서는 중앙에 정렬 */
+@media (min-width: 769px) {
+    body {
+        justify-content: center; /* 컴퓨터 화면에서는 중앙에 위치 */
+    }
+
+    .progress-bar {
+        margin-top: 77px; /* 컴퓨터에서 중앙 정렬 마진 */
+    }
+
+    .container {
+        justify-content: center;
+    }
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto; /* 100vh에서 auto로 변경 */
 }
 
 .background {

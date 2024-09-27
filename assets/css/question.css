@@ -28,7 +28,7 @@ body {
     }
 
     .progress-bar {
-        margin-top: 16px; /* 모바일에서 상단과의 간격 조정 */
+        margin-top: 0px; /* 모바일에서 상단과의 간격 조정 */
     }
 
     .container {
