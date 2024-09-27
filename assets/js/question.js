@@ -1,4 +1,4 @@
-function typeText(element, text, speed) {
+function typeText(element, text, speed, callback) {
     let i = 0;
     let isTag = false;
     let html = "";
@@ -23,6 +23,8 @@ function typeText(element, text, speed) {
 
             i++; // 다음 글자로 이동
             setTimeout(typeCharacter, speed); // speed에 맞춰 다음 글자 추가
+        } else {
+            if (callback) callback(); // 타이핑이 완료된 후 callback 실행
         }
     }
 
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let currentQuestionIndex = 0;
     const totalQuestions = questions.length;
-    let clickable = true;  // 클릭 가능 여부 플래그
+    let clickable = false;  // 클릭 가능 여부 플래그를 초기에는 false로 설정
 
     const questionText = document.querySelector('.question-text');
     const imageBox = document.querySelector('.image-box img');
@@ -86,9 +88,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const choiceBBox = document.querySelector('.choice-b');
 
     function updateQuestion() {
+        clickable = false; // 새로운 질문이 시작되면 클릭을 막음
         const currentQuestion = questions[currentQuestionIndex];
         imageBox.src = currentQuestion.image;
-        typeText(questionText, currentQuestion.question, 100); // 한 글자씩 나타나도록
+        typeText(questionText, currentQuestion.question, 100, function() {
+            clickable = true; // 타이핑이 끝나면 클릭 가능하게 설정
+        });
         choiceA.innerHTML = currentQuestion.choices[0];
         choiceB.innerHTML = currentQuestion.choices[1];
 
@@ -101,9 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // 선택지 초기화
         resetChoices();
-        clickable = true;  // 질문 업데이트 후 다시 클릭 가능하게 설정
     }
 
     function nextQuestion() {
@@ -112,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateQuestion();
         } else {
             console.log('모든 질문이 완료되었습니다.');
-            // 테스트 완료 후 결과 화면으로 이동하는 로직 추가
         }
     }
 
@@ -129,10 +131,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function resetChoices() {
-        // 선택지의 스타일 및 이미지 원래대로 초기화
         choiceABox.querySelector('img').src = './assets/images/unselected.png';
         choiceA.style.color = '#000000';
-
         choiceBBox.querySelector('img').src = './assets/images/unselected.png';
         choiceB.style.color = '#000000';
     }
