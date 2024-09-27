@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         clickable = false; // 새로운 질문이 시작되면 클릭을 막음
         const currentQuestion = questions[currentQuestionIndex];
         imageBox.src = currentQuestion.image;
-        typeText(questionText, currentQuestion.question, 100, function() {
+        typeText(questionText, currentQuestion.question, 50, function() {
             clickable = true; // 타이핑이 끝나면 클릭 가능하게 설정
         });
         choiceA.innerHTML = currentQuestion.choices[0];

@@ -95,8 +95,15 @@ body {
     flex-shrink: 0;
     margin-bottom: 32px;
     position: relative;
-    transition: filter 0.2s ease; /* 클릭 시 부드럽게 그림자 변경 */
-    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.5)); /* 오른쪽과 아래에 더 진한 그림자 */
+    transition: all 0.1s ease; /* 클릭 시 빠르게 눌리는 애니메이션 */
+}
+
+.choice:active {
+    transform: scale(0.9); /* 클릭 순간 더 강하게 축소 */
+}
+
+.choice.selected {
+    transform: scale(0.95); /* 클릭 후 약간 덜 눌린 상태 유지 */
 }
 
 .choice:last-of-type {
@@ -111,7 +118,6 @@ body {
     pointer-events: none; /* 이미지를 클릭할 수 없게 설정 */
 }
 
-/* 선택지 텍스트 */
 .choice-text {
     z-index: 1;
     width: 243px;
@@ -121,9 +127,10 @@ body {
     font-weight: 500;
     line-height: 24px;
     white-space: normal;
+    transition: color 0.2s ease; /* 텍스트 색상도 부드럽게 변경 */
 }
 
-/* 선택 시 그림자가 사라지면서 눌린 효과 */
-.choice.selected {
-    filter: none; /* 클릭 시 그림자가 없어지면서 눌린 느낌을 줌 */
+/* 선택된 상태 유지 */
+.choice.selected .choice-text {
+    color: #ffffff; /* 선택된 후 텍스트 색상 변경 */
 }
