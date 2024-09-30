@@ -3,6 +3,11 @@
     src: url('../fonts/DOSSaemmul.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'CookieRun';
+    src: url('../fonts/CookieRun Bold.ttf') format('truetype');
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -15,7 +20,7 @@ body {
 .container {
     width: 100%;
     max-width: 375px;
-    height: 100vh;
+    height: 2104px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,4 +133,38 @@ body {
     font-size: 14px;
     font-weight: 500;
     line-height: normal;
+}
+
+.other-jobs {
+    position: absolute;
+    top: calc(90px + 280px + 31px); /* 스탯프레임 기준 하단 31px */
+    left: 50%; /* 가로 중앙 정렬 */
+    transform: translateX(-50%); /* 중앙 정렬을 위해 이동 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 쌀미 이미지를 중앙에 배치 */
+    z-index: 2;
+    width: 339px; /* 텍스트 박스 너비 설정 */
+}
+
+.other-jobs-text {
+    width: 100%; /* 텍스트 박스의 너비를 100%로 설정 */
+    text-align: left; /* 텍스트를 왼쪽 정렬 */
+    color: #FFF;
+    text-shadow: 3px 3px 3.5px rgba(0, 0, 0, 0.10);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+    font-family: CookieRun;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 20px; /* 텍스트와 이미지 간의 간격 */
+    padding-left: 18px; /* 왼쪽 여백을 추가하여 배경 기준으로 18px 떨어지도록 설정 */
+}
+
+.ssalmi-image {
+    width: 244px;
+    height: 207px;
+    flex-shrink: 0;
+    margin-top: 125px;
 }
