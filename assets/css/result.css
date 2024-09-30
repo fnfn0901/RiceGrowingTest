@@ -34,17 +34,49 @@ body {
     background-color: #fff; /* 화면 밖 영역을 흰색으로 설정 */
 }
 
+/* 부모 컨테이너 설정 */
 .container {
     width: 100%;
-    max-width: 375px; /* 컨테이너의 최대 너비 설정 */
-    height: 100vh; /* 컨테이너 높이 설정 */
+    max-width: 375px;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('../images/resultBackground.png'); /* 이미지 경로 수정 */
-    background-size: cover; /* 배경 이미지를 컨테이너 크기에 맞게 조정 */
-    background-position: center; /* 배경 이미지를 중앙에 배치 */
+    position: relative; /* 자식 요소들의 상대적 위치를 설정하기 위한 부모 */
+    background-image: url('../images/resultBackground.png');
+    background-size: cover;
+    background-position: center;
     box-sizing: border-box;
-    position: relative; /* 원 배치를 위해 position 설정 */
+    overflow: hidden; /* 화면 밖으로 나가는 요소를 잘라내기 */
+}
+
+/* 직업 이미지 */
+.job-image {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%; /* 둥근 모서리 */
+    border: 1px solid rgba(52, 121, 40, 0.30); /* 테두리 */
+    position: absolute;
+    top: 53px;
+    left: -21px;
+    z-index: 1;
+    overflow: hidden; /* 이미지가 넘칠 때 자르기 */
+}
+
+.job-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지 크기에 맞게 자르기 */
+}
+
+.stat-frame {
+    width: 230px;
+    height: 280px;
+    position: absolute;
+    top: calc(53px + 37px); /* job-image의 top값에 37px 추가 */
+    left: calc(-21px + 150px); /* job-image의 left값에 150px 추가 */
+    z-index: 2; /* 직업 이미지 위에 오도록 설정 */
+    background-image: url('../images/statframe.svg');
+    background-size: cover;
+    background-position: center; /* 배경 이미지를 중앙에 배치 */
 }
