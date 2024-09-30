@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const questions = [
         {
             question: `농사 시작!<br>오늘 첫날인데 무엇을 할까요?`,
-            image: './assets/images/question01.png',
+            image: './assets/images/question/question01.png',
             choices: ['A. 일단 이웃들과 친해져야지! 파종 파티를 열어볼까?', 'B. 여유롭게 논 주변을 천천히 둘러보자.']
         },
         {
