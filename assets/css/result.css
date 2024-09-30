@@ -178,3 +178,42 @@ body {
     display: block; /* 블록 요소로 설정하여 중앙 정렬 */
     margin: 0 auto; /* 가로 중앙 정렬 */
 }
+
+.best-job, .wost-job {
+    width: 181px;
+    height: 243px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 903px; /* 상단으로부터 903px 떨어진 위치 */
+    left: 20px; /* 왼쪽에 배치 */
+}
+
+.best-job-text, .wost-job-text {
+    width: 129px;
+    height: 30px;
+    flex-shrink: 0;
+    border: 3px solid rgba(192, 235, 166, 0.80);
+    background: #FFF;
+    position: absolute;
+    top: 0; /* best-job의 상단에 위치 */
+    left: 206px; /* best-job img에서 오른쪽으로 25px 떨어진 위치 */
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    color: #000;
+    text-align: center;
+    font-family: CookieRun;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.best-description-frame, .wost-description-frame {
+    width: 129px; /* 설정된 너비 */
+    height: 197px; /* 설정된 높이 */
+    flex-shrink: 0; /* 축소되지 않도록 설정 */
+    position: absolute;
+    top: calc(30px + 16px); /* best-job-text의 높이(30px) + 아래로 16px 떨어진 위치 */
+    left: 206px; /* best-job img에서 오른쪽으로 25px 떨어진 위치 */
+}
