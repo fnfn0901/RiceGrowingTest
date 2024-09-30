@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="129" height="197" viewBox="0 0 129 197" fill="none">
+  <rect x="1.5" y="1.5" width="126" height="194" fill="white" stroke="#347928" stroke-width="3"/> <!-- 메인 색상 변경 -->
+  <rect width="3" height="3" fill="#C0EBA6"/>
+  <rect x="3" width="3" height="3" fill="#C0EBA6"/>
+  <rect x="3" y="3" width="3" height="3" fill="#347928"/> <!-- 메인 색상 변경 -->
+  <rect y="3" width="3" height="3" fill="#C0EBA6"/>
+  <rect x="123" width="3" height="3" fill="#C0EBA6"/>
+  <rect x="126" width="3" height="3" fill="#C0EBA6"/>
+  <rect x="126" y="3" width="3" height="3" fill="#C0EBA6"/>
+  <rect x="123" y="3" width="3" height="3" fill="#347928"/> <!-- 메인 색상 변경 -->
+  <rect x="123" y="191" width="3" height="3" fill="#347928"/> <!-- 메인 색상 변경 -->
+  <rect x="126" y="191" width="3" height="3" fill="#C0EBA6"/>
+  <rect x="126" y="194" width="3" height="3" fill="#C0EBA6"/>
+  <rect x="123" y="194" width="3" height="3" fill="#C0EBA6"/>
+  <rect y="191" width="3" height="3" fill="#C0EBA6"/>
+  <rect x="3" y="191" width="3" height="3" fill="#347928"/> <!-- 메인 색상 변경 -->
+  <rect x="3" y="194" width="3" height="3" fill="#C0EBA6"/>
+  <rect y="194" width="3" height="3" fill="#C0EBA6"/>
+</svg>
