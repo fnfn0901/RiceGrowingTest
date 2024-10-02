@@ -177,44 +177,31 @@ document.addEventListener('DOMContentLoaded', function() {
     displayStats();
 });
 
-function generateRandomStats() {
-    const maxStatValue = 100; // 각 스탯의 최대 값
-    const minStatValue = 30;  // 각 스탯의 최소 값
-    const totalStats = 6;     // 스탯의 개수 (체력, 정신력, 근력, 순발력, 지능, 친화력)
-
-    let stats = [];
-    let totalSum = 0;
-
-    // 각 스탯을 최소값으로 설정하여 기본 값을 보장
-    for (let i = 0; i < totalStats; i++) {
-        let randomValue = Math.floor(Math.random() * (maxStatValue - minStatValue + 1)) + minStatValue;
-        stats.push(randomValue);
-        totalSum += randomValue;
-    }
-
-    // 각 스탯의 총합이 너무 높거나 너무 낮지 않도록 조정
-    const maxTotalSum = totalStats * maxStatValue * 0.9; // 최대 총합 (90% 수준)
-    const minTotalSum = totalStats * minStatValue * 1.1; // 최소 총합 (110% 수준)
-
-    // 총합이 범위를 벗어났을 때 조정
-    if (totalSum > maxTotalSum) {
-        const excess = totalSum - maxTotalSum;
-        for (let i = 0; i < totalStats; i++) {
-            stats[i] -= Math.floor(excess / totalStats);
-        }
-    } else if (totalSum < minTotalSum) {
-        const shortage = minTotalSum - totalSum;
-        for (let i = 0; i < totalStats; i++) {
-            stats[i] += Math.floor(shortage / totalStats);
-        }
-    }
-
-    return {
-        체력: stats[0],
-        정신력: stats[1],
-        근력: stats[2],
-        순발력: stats[3],
-        지능: stats[4],
-        친화력: stats[5]
+// 스탯을 직업별로 고정된 값으로 설정하는 함수
+function generateFixedStats(bestJob) {
+    const jobStats = {
+        "쌀 요리사": { 체력: 83, 정신력: 52, 근력: 47, 순발력: 91, 지능: 64, 친화력: 73 },
+        "쌀 유통 전문가": { 체력: 67, 정신력: 85, 근력: 58, 순발력: 63, 지능: 74, 친화력: 92 },
+        "친환경 농업 연구원": { 체력: 55, 정신력: 93, 근력: 61, 순발력: 54, 지능: 82, 친화력: 68 },
+        "쌀 농업 경영자": { 체력: 74, 정신력: 72, 근력: 83, 순발력: 62, 지능: 88, 친화력: 57 },
+        "쌀 가공 기술자": { 체력: 63, 정신력: 67, 근력: 72, 순발력: 85, 지능: 91, 친화력: 53 },
+        "쌀 브랜드 마케터": { 체력: 72, 정신력: 65, 근력: 54, 순발력: 89, 지능: 83, 친화력: 62 },
+        "쌀 문화 연구가": { 체력: 53, 정신력: 88, 근력: 63, 순발력: 52, 지능: 84, 친화력: 71 },
+        "쌀 품종 개발자": { 체력: 61, 정신력: 82, 근력: 75, 순발력: 59, 지능: 92, 친화력: 56 }
     };
+    return jobStats[bestJob] || { 체력: 50, 정신력: 50, 근력: 50, 순발력: 50, 지능: 50, 친화력: 50 };
+}
+
+// 스탯을 화면에 표시하는 함수
+function displayStats(bestJob) {
+    const statValues = generateFixedStats(bestJob);
+
+    document.querySelector('.stats').innerHTML = `
+        <div>체력 : ${statValues.체력}</div>
+        <div>정신력 : ${statValues.정신력}</div>
+        <div>근력 : ${statValues.근력}</div>
+        <div>순발력 : ${statValues.순발력}</div>
+        <div>지능 : ${statValues.지능}</div>
+        <div>친화력 : ${statValues.친화력}</div>
+    `;
 }
