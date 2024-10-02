@@ -1,3 +1,4 @@
+// 텍스트 타이핑 애니메이션 함수
 function typeText(element, text, speed, callback) {
     let i = 0;
     let isTag = false;
@@ -30,6 +31,7 @@ function typeText(element, text, speed, callback) {
 
     typeCharacter(); // 타이핑 애니메이션 시작
 }
+
 // 결과 직업 리스트 및 점수
 const jobs = [
     { name: '쌀 요리사', score: 0 },
@@ -123,14 +125,26 @@ function processUserAnswers(answers) {
     for (let i = 0; i < answers.length; i++) {
         addScore(i + 1, answers[i]);
     }
+    
+    // 모든 직업 점수 중 가장 높은 점수와 가장 낮은 점수를 찾음
     let maxScore = Math.max(...jobs.map(job => job.score));
-    let finalJobs = jobs.filter(job => job.score === maxScore);
+    let minScore = Math.min(...jobs.map(job => job.score));
 
-    if (finalJobs.length > 1) {
-        return finalJobs[Math.floor(Math.random() * finalJobs.length)].name; // 동점일 경우 랜덤 선택
-    } else {
-        return finalJobs[0].name; // 결과는 하나만 나오도록 처리
-    }
+    // 가장 높은 점수를 가진 직업과 가장 낮은 점수를 가진 직업을 필터링
+    let finalJobs = jobs.filter(job => job.score === maxScore);
+    let worstJobs = jobs.filter(job => job.score === minScore);
+
+    // 동점일 경우 랜덤으로 선택
+    let bestJob = finalJobs.length > 1 
+        ? finalJobs[Math.floor(Math.random() * finalJobs.length)].name 
+        : finalJobs[0].name;
+
+    let worstJob = worstJobs.length > 1 
+        ? worstJobs[Math.floor(Math.random() * worstJobs.length)].name 
+        : worstJobs[0].name;
+
+    // 가장 높은 점수와 낮은 점수를 가진 직업을 반환
+    return { bestJob, worstJob };
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -153,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             question: `수확철이 다가오고 있습니다.<br>당신의 수확 계획은?`,
             image: './assets/images/question/question04.png',
-            choices: ['A. 철저히 계획은 필수! 그래야 실수 없이 수확할 수 있지!', 'B. 상황에 맞춰 유연하게! 그때그때 맞춰가는 게 더 효율적일걸?']
+            choices: ['A. 철저히 계획은 필수! 그래야 실수 없이 수확할 수 있지!', 'B. 상황에 맞춰 유연하게! 맞춰가는 게 더 효율적일걸?']
         },
         {
             question: '올해도 풍년입니다! 수확한 쌀을 어떻게 활용할까요?',
@@ -218,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             const result = processUserAnswers(userAnswers); // 최종 결과 처리
             console.log('최종 결과:', result);
-            window.location.href = `result.html?job=${encodeURIComponent(result)}`; // 결과 페이지로 이동
+            window.location.href = `result.html?bestJob=${encodeURIComponent(result.bestJob)}&worstJob=${encodeURIComponent(result.worstJob)}`; // 결과 페이지로 이동
         }
     }
 

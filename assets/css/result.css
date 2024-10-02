@@ -222,6 +222,16 @@ body {
     position: absolute;
     top: calc(30px + 16px); /* best-job-text의 높이(30px) + 아래로 16px 떨어진 위치 */
     left: 206px; /* best-job img에서 오른쪽으로 25px 떨어진 위치 */
+    background-image: url('/assets/images/best-description-frame.svg');
+    background-size: cover; /* 배경 이미지를 컨테이너 크기에 맞게 조정 */
+    background-position: center; /* 배경 이미지 위치 설정 */
+    padding: 10px; /* 텍스트 패딩 */
+    overflow-y: auto; /* 텍스트가 길면 스크롤 가능 */
+    box-sizing: border-box;
+    font-family: CookieRun; /* 텍스트 폰트 설정 */
+    font-size: 7px;
+    line-height: 1.5;
+    color: #000;
 }
 
 .event-image {
