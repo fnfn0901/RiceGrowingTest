@@ -30,6 +30,108 @@ function typeText(element, text, speed, callback) {
 
     typeCharacter(); // 타이핑 애니메이션 시작
 }
+// 결과 직업 리스트 및 점수
+const jobs = [
+    { name: '쌀 요리사', score: 0 },
+    { name: '쌀 유통 전문가', score: 0 },
+    { name: '친환경 농업 연구원', score: 0 },
+    { name: '쌀 농업 경영자', score: 0 },
+    { name: '쌀 가공 기술자', score: 0 },
+    { name: '쌀 브랜드 마케터', score: 0 },
+    { name: '쌀 문화 연구가', score: 0 },
+    { name: '쌀 품종 개발자', score: 0 }
+];
+
+// 질문에 따른 점수 증가 로직
+function addScore(questionIndex, answer) {
+    switch (questionIndex) {
+        case 1:
+            if (answer === 'A') {
+                incrementScore('쌀 브랜드 마케터', 2);
+                incrementScore('쌀 요리사', 1);
+            } else {
+                incrementScore('쌀 문화 연구가', 3);
+                incrementScore('친환경 농업 연구원', 1);
+            }
+            break;
+        case 2:
+            if (answer === 'A') {
+                incrementScore('쌀 유통 전문가', 2);
+                incrementScore('쌀 가공 기술자', 2);
+            } else {
+                incrementScore('쌀 농업 경영자', 2);
+                incrementScore('쌀 문화 연구가', 1);
+            }
+            break;
+        case 3:
+            if (answer === 'A') {
+                incrementScore('친환경 농업 연구원', 4);
+            } else {
+                incrementScore('쌀 가공 기술자', 3);
+                incrementScore('쌀 유통 전문가', 2);
+            }
+            break;
+        case 4:
+            if (answer === 'A') {
+                incrementScore('쌀 농업 경영자', 4);
+            } else {
+                incrementScore('쌀 유통 전문가', 2);
+                incrementScore('쌀 요리사', 2);
+            }
+            break;
+        case 5:
+            if (answer === 'A') {
+                incrementScore('쌀 요리사', 5);
+                incrementScore('쌀 브랜드 마케터', 2);
+            } else {
+                incrementScore('쌀 문화 연구가', 4);
+            }
+            break;
+        case 6:
+            if (answer === 'A') {
+                incrementScore('쌀 문화 연구가', 3);
+            } else {
+                incrementScore('쌀 브랜드 마케터', 3);
+                incrementScore('쌀 유통 전문가', 2);
+            }
+            break;
+        case 7:
+            if (answer === 'A') {
+                incrementScore('쌀 가공 기술자', 3);
+                incrementScore('쌀 품종 개발자', 2);
+            } else {
+                incrementScore('친환경 농업 연구원', 3);
+            }
+            break;
+        case 8:
+            if (answer === 'A') {
+                incrementScore('쌀 품종 개발자', 4);
+            } else {
+                incrementScore('쌀 요리사', 3);
+            }
+            break;
+    }
+}
+
+function incrementScore(jobName, points) {
+    let job = jobs.find(j => j.name === jobName);
+    if (job) job.score += points;
+}
+
+// 사용자의 선택에 따른 결과 처리
+function processUserAnswers(answers) {
+    for (let i = 0; i < answers.length; i++) {
+        addScore(i + 1, answers[i]);
+    }
+    let maxScore = Math.max(...jobs.map(job => job.score));
+    let finalJobs = jobs.filter(job => job.score === maxScore);
+
+    if (finalJobs.length > 1) {
+        return finalJobs[Math.floor(Math.random() * finalJobs.length)].name; // 동점일 경우 랜덤 선택
+    } else {
+        return finalJobs[0].name; // 결과는 하나만 나오도록 처리
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     const questions = [
@@ -51,10 +153,10 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             question: `수확철이 다가오고 있습니다.<br>당신의 수확 계획은?`,
             image: './assets/images/question04.png',
-            choices: ['A. 특별한 요리를 도전해볼까? 쌀 젤라또나 쌀 피자는 어때?', 'B. 쌀은 나눌 때 더 맛있지! 이웃들과 나눠 먹으면 좋겠어.']
+            choices: ['A. 철저히 계획은 필수! 그래야 실수 없이 수확할 수 있지!', 'B. 상황에 맞춰 유연하게! 그때그때 맞춰가는 게 더 효율적일걸?']
         },
         {
-            question: '올해도 풍년입니다 ! 수확한 쌀을 어떻게 활용할까요?',
+            question: '올해도 풍년입니다! 수확한 쌀을 어떻게 활용할까요?',
             image: './assets/images/question05.png',
             choices: ['A. 특별한 요리를 도전해 볼까? 쌀 젤라또나 쌀 피자는 어때?', 'B. 쌀은 나눌 때 더 맛있지! 이웃들과 나눠 먹으면 좋겠어.']
         },
@@ -64,19 +166,20 @@ document.addEventListener('DOMContentLoaded', function() {
             choices: ['A. 혼자만의 시간을 갖고 조용히 힐링하는 게 나만의 축하 방식!', 'B. 기쁨은 나누면 두 배! 이웃들과 함께 신나는 파티를 열자!']
         },
         {
-            question: '긴 휴경기, 당신은 이 시간을 어떻게 보낼까요?',
+            question: '긴 휴경기, 당신은 이 시간을 어떻게 보낼 건가요?',
             image: './assets/images/question07.png',
-            choices: ['A. 조용히 책을 읽거나 음악을 들으면서 에너지를 충전!', 'B. 야외 활동이나 운동을 하며 활력을 채워보자!']
+            choices: ['A. 책도 읽고 음악을 들으면서 에너지를 충전!', 'B. 야외 활동이나 운동을 하며 활력을 채워보자!']
         },
         {
             question: `올해 성공적으로 농사를 마쳤습니다.<br>내년을 준비할 때 당신은?`,
             image: './assets/images/question08.png',
-            choices: ['A. 최신 농업 기술을 공부해서 좀 더 효율적으로 일해보자!', 'B. 자연스럽게, 친환경 방식으로 천천히 도전해보자.']
+            choices: ['A. 최신 농업 기술을 공부해서 좀 더 효율적으로 일해보자!', 'B. 친환경 방식으로 천천히 도전해보자.']
         },
     ];
 
     let currentQuestionIndex = 0;
     const totalQuestions = questions.length;
+    let userAnswers = [];
     let clickable = false;
 
     const questionText = document.querySelector('.question-text');
@@ -113,15 +216,17 @@ document.addEventListener('DOMContentLoaded', function() {
             currentQuestionIndex++;
             updateQuestion();
         } else {
-            console.log('모든 질문이 완료되었습니다.');
-            window.location.href = 'result.html'; // 결과 페이지로 이동
+            const result = processUserAnswers(userAnswers); // 최종 결과 처리
+            console.log('최종 결과:', result);
+            window.location.href = `result.html?job=${encodeURIComponent(result)}`; // 결과 페이지로 이동
         }
     }
 
-    function handleChoiceSelection(choiceBox, choiceText) {
+    function handleChoiceSelection(choiceBox, choiceText, choiceValue) {
         if (!clickable) return;
         clickable = false;
 
+        userAnswers.push(choiceValue); // 선택한 답 저장
         choiceBox.querySelector('img').src = './assets/images/selected.png';
         choiceText.style.color = '#ffffff';
 
@@ -136,11 +241,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     choiceABox.addEventListener('click', function() {
-        handleChoiceSelection(choiceABox, choiceA);
+        handleChoiceSelection(choiceABox, choiceA, 'A');
     });
 
     choiceBBox.addEventListener('click', function() {
-        handleChoiceSelection(choiceBBox, choiceB);
+        handleChoiceSelection(choiceBBox, choiceB, 'B');
     });
 
     updateQuestion();
