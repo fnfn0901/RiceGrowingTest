@@ -192,6 +192,16 @@ body {
     top: 903px; /* 상단으로부터 903px 떨어진 위치 */
     left: 20px;
     right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 가로 중앙 정렬 */
+}
+
+.best-job img, .worst-job img {
+    width: 100%; /* 프레임 너비에 맞춤 */
+    height: 100%; /* 프레임 높이에 맞춤 */
+    object-fit: cover; /* 비율 유지하며 채우기 */
+    border-radius: 10px; /* 프레임 모서리 둥글게 */
 }
 
 .best-job-text, .worst-job-text {
@@ -201,8 +211,8 @@ body {
     border: 3px solid rgba(192, 235, 166, 0.80);
     background: #FFF;
     position: absolute;
-    top: 0; /* best-job의 상단에 위치 */
-    left: 206px; /* best-job img에서 오른쪽으로 25px 떨어진 위치 */
+    top: 0; /* 텍스트 박스를 프레임의 상단에 위치 */
+    left: 206px; /* 이미지 오른쪽으로 25px 떨어진 위치 */
     display: flex;
     align-items: center; /* 세로 중앙 정렬 */
     justify-content: center; /* 가로 중앙 정렬 */
@@ -213,6 +223,17 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.best-job-image, .worst-job-image {
+    width: 100%; /* 부모 요소의 너비에 맞게 조정 */
+    height: 100%; /* 부모 요소의 높이에 맞게 조정 */
+    background-size: cover; /* 이미지를 프레임에 맞게 늘리도록 설정 */
+    background-position: center; /* 중앙 정렬 */
+    border-radius: 50%; /* 이미지를 원형으로 자르기 위해 border-radius 설정 (원하는 경우) */
+    display: flex; /* Flexbox를 사용하여 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
 }
 
 .best-description-frame, .worst-description-frame {

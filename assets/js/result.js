@@ -21,19 +21,22 @@ function displayBestAndWorstJobs(bestJob, worstJob) {
     const jobTitleElement = document.querySelector('.job-title');
     const bestDescription = document.querySelector('.best-description-frame');
     const worstDescription = document.querySelector('.worst-description-frame');
+    const bestImage = document.querySelector('.best-job-image');  // best-job 이미지 선택
+    const worstImage = document.querySelector('.worst-job-image'); // worst-job 이미지 선택
 
+    // best job 제목 및 설명 추가
     jobTitleElement.textContent = bestJob;
-
-    // best job 설명 추가
     if (jobData[bestJob]) {
         bestDescription.innerHTML = jobData[bestJob].description.map(desc => `<p>${desc}</p>`).join("");
+        bestImage.style.backgroundImage = `url(${jobData[bestJob].image})`;  // 이미지 경로 설정
     } else {
         console.error(`Best job (${bestJob}) description not found in jobData.`);
     }
 
-    // worst job 설명 추가
+    // worst job 설명 및 이미지 추가
     if (jobData[worstJob]) {
         worstDescription.innerHTML = jobData[worstJob].description.map(desc => `<p>${desc}</p>`).join("");
+        worstImage.style.backgroundImage = `url(${jobData[worstJob].image})`;  // 이미지 경로 설정
     } else {
         console.error(`Worst job (${worstJob}) description not found in jobData.`);
     }

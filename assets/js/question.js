@@ -1,6 +1,5 @@
-import { jobs } from './jobs.js';
+import { jobs, addScore } from './jobData.js'; // jobData.js에서 jobs와 addScore를 가져옵니다.
 import { questions } from './situation.js';
-import { addScore } from './score.js';
 
 // 텍스트 타이핑 애니메이션 함수
 function typeText(element, text, speed, callback) {
@@ -39,7 +38,7 @@ function typeText(element, text, speed, callback) {
 // 사용자의 선택에 따른 결과 처리
 function processUserAnswers(answers) {
     answers.forEach((answer, index) => {
-        addScore(index, answer);
+        addScore(index, answer); // 점수 추가
     });
 
     let maxScore = Math.max(...jobs.map(job => job.score));
