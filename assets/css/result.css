@@ -185,7 +185,8 @@ body {
     flex-shrink: 0;
     position: absolute;
     top: 903px; /* 상단으로부터 903px 떨어진 위치 */
-    left: 20px; /* 왼쪽에 배치 */
+    left: 20px;
+    right: 20px;
 }
 
 .best-job-text, .wost-job-text {
@@ -216,4 +217,20 @@ body {
     position: absolute;
     top: calc(30px + 16px); /* best-job-text의 높이(30px) + 아래로 16px 떨어진 위치 */
     left: 206px; /* best-job img에서 오른쪽으로 25px 떨어진 위치 */
+}
+
+.event-image {
+    position: absolute;
+    top: calc(1179px + 30px + 197px + 67px); /* wost-description-frame 위치로부터 67px */
+    left: 20px;
+    right: 20px;
+    width: calc(100% - 40px); /* 양쪽 20px씩 간격을 뺀 너비 */
+    display: flex;
+    justify-content: center; /* 이미지를 중앙에 정렬 */
+}
+
+.event-image img {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
 }
