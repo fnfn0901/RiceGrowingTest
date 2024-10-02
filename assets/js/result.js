@@ -3,9 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const bestJob = urlParams.get('bestJob');
     const worstJob = urlParams.get('worstJob');
+    const retestButton = document.querySelector('.retest-button');
 
-    displayBestAndWostJobs(bestJob, worstJob);
+    displayBestAndWorstJobs(bestJob, worstJob);
     displayStats();
+
+    retestButton.addEventListener('click', function() {
+        window.location.href = 'index.html'; // 'index.html'로 이동
+    });
 });
 
 // 직업별 설명 리스트
@@ -85,9 +90,13 @@ const jobDescriptions = {
 };
 
 // 가장 높은 점수와 낮은 점수의 직업을 찾아 설명 추가
-function displayBestAndWostJobs(bestJob, worstJob) {
+function displayBestAndWorstJobs(bestJob, worstJob) {
+    const jobTitleElement = document.querySelector('.job-title'); // job-title에 접근
     const bestDescription = document.querySelector('.best-description-frame');
-    const worstDescription = document.querySelector('.wost-description-frame');
+    const worstDescription = document.querySelector('.worst-description-frame');
+
+    // job-title에 가장 높은 점수의 직업 표시
+    jobTitleElement.textContent = bestJob;  // bestJob이 job-title에 표시되도록 설정
 
     // best job의 설명 추가
     if (jobDescriptions[bestJob]) {
@@ -148,8 +157,8 @@ function displayStats() {
     const statValues = generateRandomStats();
 
     document.querySelector('.stats').innerHTML = `
-        <div>체력 : ${statValues.체력} / 100</div>
-        <div>정신력 : ${statValues.정신력} / 100</div>
+        <div>체력 : ${statValues.체력}</div>
+        <div>정신력 : ${statValues.정신력}</div>
         <div>근력 : ${statValues.근력}</div>
         <div>순발력 : ${statValues.순발력}</div>
         <div>지능 : ${statValues.지능}</div>
@@ -159,9 +168,53 @@ function displayStats() {
 
 // 페이지 로드 시 직업 설명과 스탯을 동시에 표시
 document.addEventListener('DOMContentLoaded', function() {
-    const bestJob = "쌀 요리사";  // 예시로 가장 높은 점수를 받은 직업
-    const worstJob = "쌀 유통 전문가";  // 예시로 가장 낮은 점수를 받은 직업
-
-    displayBestAndWostJobs(bestJob, worstJob);
+    const urlParams = new URLSearchParams(window.location.search);
+    const bestJob = urlParams.get('bestJob');
+    const worstJob = urlParams.get('worstJob');
+    
+    // 직업 및 설명 표시 함수 호출
+    displayBestAndWorstJobs(bestJob, worstJob);
     displayStats();
 });
+
+function generateRandomStats() {
+    const maxStatValue = 100; // 각 스탯의 최대 값
+    const minStatValue = 30;  // 각 스탯의 최소 값
+    const totalStats = 6;     // 스탯의 개수 (체력, 정신력, 근력, 순발력, 지능, 친화력)
+
+    let stats = [];
+    let totalSum = 0;
+
+    // 각 스탯을 최소값으로 설정하여 기본 값을 보장
+    for (let i = 0; i < totalStats; i++) {
+        let randomValue = Math.floor(Math.random() * (maxStatValue - minStatValue + 1)) + minStatValue;
+        stats.push(randomValue);
+        totalSum += randomValue;
+    }
+
+    // 각 스탯의 총합이 너무 높거나 너무 낮지 않도록 조정
+    const maxTotalSum = totalStats * maxStatValue * 0.9; // 최대 총합 (90% 수준)
+    const minTotalSum = totalStats * minStatValue * 1.1; // 최소 총합 (110% 수준)
+
+    // 총합이 범위를 벗어났을 때 조정
+    if (totalSum > maxTotalSum) {
+        const excess = totalSum - maxTotalSum;
+        for (let i = 0; i < totalStats; i++) {
+            stats[i] -= Math.floor(excess / totalStats);
+        }
+    } else if (totalSum < minTotalSum) {
+        const shortage = minTotalSum - totalSum;
+        for (let i = 0; i < totalStats; i++) {
+            stats[i] += Math.floor(shortage / totalStats);
+        }
+    }
+
+    return {
+        체력: stats[0],
+        정신력: stats[1],
+        근력: stats[2],
+        순발력: stats[3],
+        지능: stats[4],
+        친화력: stats[5]
+    };
+}

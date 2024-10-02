@@ -184,7 +184,7 @@ body {
     margin: 0 auto; /* 가로 중앙 정렬 */
 }
 
-.best-job, .wost-job {
+.best-job, .worst-job {
     width: 181px;
     height: 243px;
     flex-shrink: 0;
@@ -194,7 +194,7 @@ body {
     right: 20px;
 }
 
-.best-job-text, .wost-job-text {
+.best-job-text, .worst-job-text {
     width: 129px;
     height: 30px;
     flex-shrink: 0;
@@ -215,7 +215,7 @@ body {
     line-height: normal;
 }
 
-.best-description-frame, .wost-description-frame {
+.best-description-frame, .worst-description-frame {
     width: 129px; /* 설정된 너비 */
     height: 197px; /* 설정된 높이 */
     flex-shrink: 0; /* 축소되지 않도록 설정 */
@@ -236,7 +236,7 @@ body {
 
 .event-image {
     position: absolute;
-    top: calc(1179px + 30px + 197px + 67px); /* wost-description-frame 위치로부터 67px */
+    top: calc(1179px + 30px + 197px + 67px); /* worst-description-frame 위치로부터 67px */
     left: 20px;
     right: 20px;
     width: calc(100% - 40px); /* 양쪽 20px씩 간격을 뺀 너비 */

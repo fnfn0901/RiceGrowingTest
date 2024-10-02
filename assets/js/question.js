@@ -125,7 +125,7 @@ function processUserAnswers(answers) {
     for (let i = 0; i < answers.length; i++) {
         addScore(i + 1, answers[i]);
     }
-    
+
     // 모든 직업 점수 중 가장 높은 점수와 가장 낮은 점수를 찾음
     let maxScore = Math.max(...jobs.map(job => job.score));
     let minScore = Math.min(...jobs.map(job => job.score));
@@ -143,7 +143,7 @@ function processUserAnswers(answers) {
         ? worstJobs[Math.floor(Math.random() * worstJobs.length)].name 
         : worstJobs[0].name;
 
-    // 가장 높은 점수와 낮은 점수를 가진 직업을 반환
+    // 최종 결과를 result.html로 전달
     return { bestJob, worstJob };
 }
 
