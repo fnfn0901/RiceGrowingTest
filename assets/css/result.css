@@ -8,6 +8,11 @@
     src: url('../fonts/CookieRun Bold.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'DOSIyagiBoldface';
+    src: url('../fonts/DOSIyagiBoldface.ttf') format('truetype');
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -233,4 +238,48 @@ body {
     width: 100%;
     height: auto;
     box-sizing: border-box;
+}
+
+.retest-button {
+    position: absolute;
+    top: calc(1961px); /* 이벤트 이미지로부터 60px 아래 */
+    left: 50%; /* 가로 중앙 정렬 */
+    transform: translateX(-50%); /* 중앙 정렬을 위해 수평 이동 */
+    width: 240px; /* 버튼의 너비 */
+    height: 48px; /* 버튼의 높이 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.retest-button-img {
+    width: 100%;
+    height: 100%;
+}
+
+.retest-content {
+    position: absolute;
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    gap: 12px; /* 텍스트와 아이콘 간의 가로 간격 */
+    padding: 11px; /* 버튼 이미지 내부에서 상하좌우 간격을 11px로 설정 */
+    box-sizing: border-box; /* padding을 포함하여 요소의 크기를 계산 */
+}
+
+/* 테스트 다시하기 텍스트 스타일 */
+.retest-text {
+    color: #FFF;
+    font-family: DOSIyagiBoldface;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/* 아이콘 스타일 */
+.retest-icon {
+    width: 21px;
+    height: 18px;
+    fill: #F8F8F8;
 }
