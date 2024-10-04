@@ -9,8 +9,18 @@
 }
 
 @font-face {
+    font-family: 'CookieRunR';
+    src: url('../fonts/CookieRun Regular.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'DOSIyagiBoldface';
     src: url('../fonts/DOSIyagiBoldface.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Freesentation3';
+    src: url('../fonts/Freesentation-3Light.ttf') format('truetype');
 }
 
 body {
@@ -27,11 +37,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 100vh;
-    background-image: url('../images/resultBackground.png'); /* 배경 이미지 */
-    background-size: cover;
+    width: 375px;
+    height: 3246px;
+    background-image: url('../images/resultBackground.png');
+    background-size: 375px 3246px; /* 배경 이미지 크기를 375x3246으로 설정 */
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* '쌀 키우기로 알아본 나의 직업은?' 텍스트 스타일 */
@@ -74,4 +85,45 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover; /* 이미지를 컨테이너에 맞추면서 비율 유지 */
+}
+
+/* '꾹 눌러 이미지를 저장해주세요' 텍스트 스타일 */
+.save-image-text {
+    color: #000;
+    font-family: Freesentation;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 25px; /* 208.333% */
+    letter-spacing: 1.44px;
+    margin-top: 0px; /* 이미지 컨테이너에서 12px 아래 */
+    text-align: center;
+}
+
+/* '# 나의 직업유형' 텍스트 스타일 */
+.job-type-text {
+    color: #4352D2;
+    font-family: CookieRunR;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 552px; /* 원하는 위치로 조정 */
+    left: 35px; /* 전체 화면 기준 왼쪽에서 35px */
+}
+
+/* 직업 유형 설명 프레임 스타일 */
+.job-description-frame {
+    width: 305px;
+    height: 280px;
+    flex-shrink: 0;
+    position: absolute;
+    top: calc(552px + 24px + 20px); /* '# 나의 직업유형' 텍스트의 위치(top) + 텍스트 높이 + 20px */
+    left: 35px; /* '# 나의 직업유형' 텍스트와 같은 x축 기준 */
+    border: 2px solid #347928;
+    border-radius: 20px;
+    background-color: #fff; /* 프레임 안쪽 흰색으로 채우기 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
