@@ -160,7 +160,7 @@ body {
 /* 직업 텍스트 프레임 스타일 */
 .job-text-frame {
     display: flex;
-    width: 36.6px;
+    width: 28.6px;
     height: 11px;
     padding: 4px;
     justify-content: center;
@@ -185,9 +185,9 @@ body {
 
 /* 직업 이름 스타일 */
 .job-title {
-    position: absolute; /* 전체 화면 기준으로 위치를 설정 */
-    top: 52.28px; /* 전체 화면 기준으로 상단에서 657.28px */
-    left: 25px; /* 전체 화면 기준으로 왼쪽에서 25px */
+    position: absolute; 
+    top: 52.28px;
+    left: 25px;
     color: #000;
     font-family: DOSSaemmul;
     font-size: 20px;
@@ -196,4 +196,19 @@ body {
     width: 248.575px;
     height: 19.04px;
     flex-shrink: 0;
+}
+
+/* 라인 SVG 스타일 */
+.line {
+    position: absolute;
+    top: 87px;
+    left: 25.2px;
+}
+
+/* 스탯 창 스타일 */
+.stat-frame {
+    position: absolute;
+    top: 103.32px;
+    left: 25.2px;
+    /* 스탯 창 내용에 맞게 추가 */
 }
