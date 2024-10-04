@@ -19,16 +19,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     // 복사 성공 시 메시지를 보여줌
                     copySuccessMessage.style.display = 'flex';
 
-                    // 2초 후 메시지를 다시 숨김
+                    // 복사 완료 메시지를 유연한 시간으로 설정
+                    const displayDuration = 2000; // 복사 완료 메시지 표시 시간
                     setTimeout(() => {
                         copySuccessMessage.style.display = 'none';
-                    }, 2000);
+                    }, displayDuration);
                 })
                 .catch(err => {
                     console.error('링크 복사 실패:', err);
                 });
         } else {
-            // execCommand('copy') 방식을 사용하여 HTTP에서도 복사가 가능하도록 함
             const tempInput = document.createElement('input');
             tempInput.value = currentUrl;
             document.body.appendChild(tempInput);
@@ -36,10 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.execCommand('copy');
             document.body.removeChild(tempInput);
 
-            // 복사 성공 메시지를 보여줌
             copySuccessMessage.style.display = 'flex';
-
-            // 2초 후 메시지를 다시 숨김
             setTimeout(() => {
                 copySuccessMessage.style.display = 'none';
             }, 2000);
