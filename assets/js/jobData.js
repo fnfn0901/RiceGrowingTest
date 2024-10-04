@@ -16,7 +16,7 @@ export const jobData = {
             return 3;
         }
     },
-    "쌀 유통 전문가": {
+    "쌀 유통 관리사": {
         description: [
             "일은 미뤄야 제맛이지! #프로미룬이",
             "한 번 시작하면 끝장을 봐야지!",
