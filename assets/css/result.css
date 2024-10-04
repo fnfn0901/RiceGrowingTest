@@ -265,3 +265,70 @@ body {
     color: black;
     font-size: 10px;
 }
+
+/* 베스트/워스트 직업 프레임 */
+.best-worst-frame {
+    display: flex;
+    justify-content: space-between; /* 베스트와 워스트를 양쪽에 배치 */
+    width: 347px;
+    height: 253px;
+    position: absolute;
+    top: 1191px; /* 상단으로부터 1191px */
+    left: 50%;
+    transform: translateX(-50%); /* 가로축 중앙 배치 */
+}
+
+/* 베스트 직업 프레임 */
+.best-job-frame, .worst-job-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 가로축 중앙에 정렬 */
+    width: 150px;
+    height: 253px;
+    flex-shrink: 0;
+    position: relative; /* 자식 요소의 z-index 및 위치를 조정하기 위해 relative 추가 */
+}
+
+/* '베스트' 텍스트 박스 */
+.best-text-box, .worst-text-box {
+    width: 80px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #347928;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-family: DOSIyagiBoldface;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    z-index: 1; /* 텍스트 박스를 이미지 프레임 위에 배치 */
+    margin-top: 0;
+}
+
+/* 베스트 이미지 프레임 */
+.best-image-frame, .worst-image-frame {
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 2px solid #347928;
+    background: lightgray 50% / cover no-repeat;
+    margin-top: -15px;
+}
+
+/* 베스트 직업 이름 텍스트 */
+.best-job-name, .worst-job-name {
+    color: #000;
+    font-family: DOSSaemmul;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/* 워스트 직업 프레임 */
+.worst-job-frame {
+    margin-left: 50px; /* 오른쪽에 배치되도록 설정 */
+}

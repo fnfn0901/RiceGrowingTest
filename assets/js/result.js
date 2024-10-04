@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const worstJob = urlParams.get('worstJob'); // URL에서 worstJob 값을 가져옴
 
     // 직업 및 스탯 정보를 화면에 표시
-    displayBestAndWorstJobs(bestJob);
+    displayBestAndWorstJobs(bestJob, worstJob);
     displayStats(bestJob);
 
     // 재시험 버튼 클릭 시 index 페이지로 이동
@@ -17,22 +17,43 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // 직업 정보 및 이미지를 화면에 표시하는 함수
-function displayBestAndWorstJobs(bestJob) {
+function displayBestAndWorstJobs(bestJob, worstJob) {
+    // 공통 요소 선택
     const jobImageElement = document.getElementById('job-image'); // 직업 이미지 요소 선택
     const jobTitleElement = document.querySelector('.job-title'); // 직업 제목 요소 선택
     const jobNameElement = document.querySelector('.job-name');   // 직업 이름 요소 선택
     const jobDescriptionElement = document.querySelector('.job-description'); // 직업 설명 요소 선택
 
+    // 베스트 직업 프레임 요소 선택
+    const bestJobImageElement = document.querySelector('.best-image-frame'); // 베스트 직업 이미지 요소 선택
+    const bestJobNameElement = document.querySelector('.best-job-name'); // 베스트 직업 이름 요소 선택
+
+    // 워스트 직업 프레임 요소 선택
+    const worstJobImageElement = document.querySelector('.worst-image-frame'); // 워스트 직업 이미지 요소 선택
+    const worstJobNameElement = document.querySelector('.worst-job-name'); // 워스트 직업 이름 요소 선택
+
     // bestJob 데이터가 존재하는지 확인
     if (jobData[bestJob]) {
-        jobImageElement.src = jobData[bestJob].image;  // 이미지 설정
-        jobNameElement.textContent = bestJob;  // 직업 이름 설정
-        jobTitleElement.textContent = bestJob; // 직업 타이틀 설정
+        // 메인 직업 정보 설정
+        jobImageElement.src = jobData[bestJob].image;  // 메인 이미지 설정
+        jobNameElement.textContent = bestJob;  // 메인 직업 이름 설정
+        jobTitleElement.textContent = bestJob; // 메인 직업 타이틀 설정
+        jobDescriptionElement.innerHTML = jobData[bestJob].description.map(desc => `<span>${desc}</span>`).join(''); // 직업 설명 추가
 
-        // 직업 설명을 동적으로 추가 (각 문장에 동그라미 추가)
-        jobDescriptionElement.innerHTML = jobData[bestJob].description.map(desc => `<span>${desc}</span>`).join('');
+        // 베스트 직업 정보 설정
+        bestJobImageElement.style.backgroundImage = `url(${jobData[bestJob].image})`;  // 베스트 이미지 설정
+        bestJobNameElement.textContent = bestJob;  // 베스트 직업 이름 설정
     } else {
         console.error(`Best job (${bestJob}) not found in jobData.`);
+    }
+
+    // worstJob 데이터가 존재하는지 확인
+    if (jobData[worstJob]) {
+        // 워스트 직업 정보 설정
+        worstJobImageElement.style.backgroundImage = `url(${jobData[worstJob].image})`;  // 워스트 이미지 설정
+        worstJobNameElement.textContent = worstJob;  // 워스트 직업 이름 설정
+    } else {
+        console.error(`Worst job (${worstJob}) not found in jobData.`);
     }
 }
 
