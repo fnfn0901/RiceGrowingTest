@@ -158,22 +158,32 @@ export function addScore(questionIndex, answer) {
 // 결과 계산 로직
 export function getFinalResult() {
     const jobNames = Object.keys(jobData);
-    let maxScore = -1;
-    let minScore = Infinity;
+    let maxScore = -Infinity;  // 최대 점수의 초기값을 -Infinity로 설정
+    let minScore = Infinity;   // 최소 점수의 초기값을 Infinity로 설정
     let bestJob = null;
     let worstJob = null;
 
     jobNames.forEach(jobName => {
         const score = jobData[jobName].stats['score'] || 0;
+
+        // 최대 점수 업데이트
         if (score > maxScore) {
             maxScore = score;
             bestJob = jobName;
         }
+
+        // 최소 점수 업데이트
         if (score < minScore) {
             minScore = score;
             worstJob = jobName;
         }
     });
+
+    // 베스트와 워스트가 동일할 경우 처리
+    if (bestJob === worstJob) {
+        // 예외 처리 로직 추가 (예: 최종 점수가 동일할 때 다른 직업 선택)
+        worstJob = jobNames.find(jobName => jobName !== bestJob);
+    }
 
     return { bestJob, worstJob };
 }
