@@ -161,7 +161,7 @@ body {
 .job-text-frame {
     display: flex;
     width: 36.6px;
-    height: 19.04px;
+    height: 11px;
     padding: 4px;
     justify-content: center;
     align-items: center;
@@ -181,4 +181,19 @@ body {
     font-size: 8px;
     font-weight: 500;
     line-height: normal;
+}
+
+/* 직업 이름 스타일 */
+.job-title {
+    position: absolute; /* 전체 화면 기준으로 위치를 설정 */
+    top: 52.28px; /* 전체 화면 기준으로 상단에서 657.28px */
+    left: 25px; /* 전체 화면 기준으로 왼쪽에서 25px */
+    color: #000;
+    font-family: DOSSaemmul;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+    width: 248.575px;
+    height: 19.04px;
+    flex-shrink: 0;
 }
