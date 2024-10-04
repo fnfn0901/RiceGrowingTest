@@ -20,6 +20,7 @@
 }
 
 html, body {
+    min-height: 100vh; /* 화면 높이를 최소 100%로 설정 */
     height: 100%; /* 전체 화면을 덮도록 설정 */
     margin: 0;
     padding: 0;
@@ -33,6 +34,7 @@ body {
     margin-top: 0px;
     height: 100%; /* height를 auto에서 100%로 설정하여 전체 높이를 차지하게 수정 */
 }
+
 
 @media (max-width: 768px) {
     body {
@@ -68,7 +70,8 @@ body {
 
 .background {
     width: 23.438rem; /* 375px */
-    height: 50.75rem; /* 812px */
+    min-height: 100vh; /* 최소 높이를 화면 크기로 설정 */
+    height: 100%;
     background: url('../images/BackgroundImage.png') lightgray -1.908px 0px / 101.018% 100% no-repeat;
     display: flex;
     flex-direction: column;
