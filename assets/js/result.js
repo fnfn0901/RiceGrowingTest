@@ -2,64 +2,45 @@ import { jobData } from './jobData.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
-    const bestJob = urlParams.get('bestJob');
-    const worstJob = urlParams.get('worstJob');
-    const retestButton = document.querySelector('.retest-button');
+    const bestJob = urlParams.get('bestJob');  // URL에서 bestJob 값을 가져옴
+    const worstJob = urlParams.get('worstJob'); // URL에서 worstJob 값을 가져옴
 
-    console.log('Best Job:', bestJob);  // 확인용 콘솔 로그
-    console.log('Worst Job:', worstJob);  // 확인용 콘솔 로그
-
-    displayBestAndWorstJobs(bestJob, worstJob);
+    // 직업 및 스탯 정보를 화면에 표시
+    displayBestAndWorstJobs(bestJob);
     displayStats(bestJob);
 
+    // 재시험 버튼 클릭 시 index 페이지로 이동
+    const retestButton = document.querySelector('.retest-button');
     retestButton.addEventListener('click', function() {
-        window.location.href = 'index.html'; // 'index.html'로 이동
+        window.location.href = 'index.html'; // 메인 페이지로 이동
     });
 });
 
-function displayBestAndWorstJobs(bestJob, worstJob) {
-    const jobTitleElement = document.querySelector('.job-title');
-    const jobNameElement = document.querySelector('.job-name'); // job-name 요소 선택
-    const bestDescription = document.querySelector('.best-description-frame');
-    const worstDescription = document.querySelector('.worst-description-frame');
-    const bestImage = document.querySelector('.best-job-image');  // best-job 이미지 선택
-    const worstImage = document.querySelector('.worst-job-image'); // worst-job 이미지 선택
-    const jobImageContainer = document.querySelector('.job-image-container img'); // 직업 이미지 컨테이너 이미지 선택
+// 직업 정보 및 이미지를 화면에 표시하는 함수
+function displayBestAndWorstJobs(bestJob) {
+    const jobImageElement = document.getElementById('job-image'); // 직업 이미지 요소 선택
+    const jobTitleElement = document.querySelector('.job-title'); // 직업 제목 요소 선택
+    const jobNameElement = document.querySelector('.job-name');   // 직업 이름 요소 선택
 
-    // job-name에 직업 이름 추가
-    jobNameElement.textContent = bestJob;
-
-    // best job 제목 및 설명 추가
-    jobTitleElement.textContent = bestJob;
+    // bestJob 데이터가 존재하는지 확인
     if (jobData[bestJob]) {
-        bestDescription.innerHTML = jobData[bestJob].description.map(desc => `<p>${desc}</p>`).join("");
-        bestImage.style.backgroundImage = `url(${jobData[bestJob].image})`;  // best job 이미지 경로 설정
-        jobImageContainer.src = `${jobData[bestJob].image}`;  // 직업 이미지 업데이트
-    } else {
-        console.error(`Best job (${bestJob}) description not found in jobData.`);
-    }
-
-    // best job 이미지 설정
-    if (jobData[bestJob]) {
-        console.log('Best job image path:', jobData[bestJob].image);  // 이미지 경로를 확인하는 콘솔 로그
-        jobImageContainer.src = jobData[bestJob].image;  // 직업 이미지 업데이트
+        jobImageElement.src = jobData[bestJob].image;  // 이미지 설정
+        jobNameElement.textContent = bestJob;  // 직업 이름 설정
+        jobTitleElement.textContent = bestJob; // 직업 타이틀 설정
     } else {
         console.error(`Best job (${bestJob}) not found in jobData.`);
     }
-    
-    // worst job 설명 및 이미지 추가
-    if (jobData[worstJob]) {
-        worstDescription.innerHTML = jobData[worstJob].description.map(desc => `<p>${desc}</p>`).join("");
-        worstImage.style.backgroundImage = `url(${jobData[worstJob].image})`;  // worst job 이미지 경로 설정
-    } else {
-        console.error(`Worst job (${worstJob}) description not found in jobData.`);
-    }
 }
 
+// 스탯 정보를 화면에 표시하는 함수
 function displayStats(bestJob) {
     const statValues = jobData[bestJob]?.stats || { 체력: 50, 정신력: 50, 근력: 50, 순발력: 50, 지능: 50, 친화력: 50 };
 
-    document.querySelector('.stats').innerHTML = `
+    const statsContainer = document.querySelector('.stats'); // 스탯 창 요소 선택
+    console.log('Stat values:', statValues); // 스탯 값을 콘솔에 출력하여 확인
+
+    // 스탯 데이터를 HTML로 삽입
+    statsContainer.innerHTML = `
         <div>체력 : ${statValues.체력} / 100</div>
         <div>정신력 : ${statValues.정신력} / 100</div>
         <div>근력 : ${statValues.근력} / 100</div>

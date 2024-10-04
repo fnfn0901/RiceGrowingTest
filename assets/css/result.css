@@ -180,28 +180,33 @@ body {
 
 .line {
     position: absolute;
-    top: 87px;
+    top: 72px;
     left: 25.2px;
 }
 
 .stat-frame {
     display: flex;
-    width: 245.525px;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+    justify-content: flex-start;
+    align-items: flex-start;  /* 왼쪽 정렬 */
+    width: 245.525px;
     position: absolute;
-    top: 103.32px;
-    left: 25.2px;
+    top: 103.32px;  /* 상단 103.32 위치 */
+    left: 25.2px;   /* 좌측 25.2 위치 */
 }
 
 .stats div {
-    height: 16.95px;
-    align-self: stretch;
     color: #000;
     font-family: DOSSaemmul;
     font-size: 14px;
+    font-style: normal;
     font-weight: 500;
     line-height: normal;
+    text-align: left;  /* 글자 왼쪽 정렬 */
+    width: 100%;  /* 100% 너비로 요소를 채움 */
+    margin-bottom: 12px; /* 각 줄 사이에 25px 간격 추가 */
+}
+
+.stats div:last-child {
+    margin-bottom: 0; /* 마지막 줄은 margin 제거 */
 }
