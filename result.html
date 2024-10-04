@@ -8,59 +8,26 @@
 </head>
 <body>
   <div class="container">
-    <div class="job-image">
-      <img src="./assets/images/result/result01.png" alt="Job Image">
-    </div>
-    <div class="stat-frame">
-      <svg xmlns="http://www.w3.org/2000/svg" width="230" height="280" viewBox="0 0 230 280" fill="none">
-        <rect x="1.5" y="1.5" width="227" height="277" fill="white" stroke="#347928" stroke-width="3"/>
-      </svg>
-      <div class="stat-content">
-        <div class="level">Lv. 99</div>
-        <div class="job-box">
-          <span class="job-label">직업</span>
-        </div>
-        <div class="job-title">쌀 품종 개발자</div>
-        <div class="line">
-          <img src="./assets/images/line.svg" alt="선 이미지">
-        </div>
-        <div class="stats">
-          <!-- 스탯 정보 -->
-        </div>
-      </div>
+    <!-- '쌀 키우기로 알아본 나의 직업은?' 텍스트 -->
+    <div class="title-text">
+      쌀 키우기로 알아본<br/>나의 직업은?
     </div>
 
-    <!-- 직업 유형 분포도 -->
-    <div class="other-jobs">
-      <div class="other-jobs-text">다른 직업 더 알아보기 !</div>
-      <div class="ssalmi-image">
-          <img src="../assets/images/SsalMi.png" alt="쌀미 이미지" />
-      </div>
+    <!-- 직업 이름 -->
+    <div class="job-name">
+      직업 이름
     </div>
 
-  <!-- Best Job -->
-  <div class="best-job">
-    <img src="./assets/images/best-image-frame.svg" alt="Best Job Frame" class="best-image-frame"/>
-    <div class="best-job-text">나랑 찰떡궁합이잖아?</div>
-    <div class="best-description-frame"></div> <!-- 설명을 담는 div -->
-    <img src="" alt="Best Job Image" class="best-job-image">  <!-- 기본 이미지 -->
-  </div>
-
-  <!-- Worst Job -->
-  <div class="worst-job">
-    <img src="./assets/images/best-image-frame.svg" alt="Worst Job Frame" class="worst-image-frame"/>
-    <div class="worst-job-text">흠 글쎄요...</div>
-    <div class="worst-description-frame"></div> <!-- 설명을 담는 div -->
-    <img src="" alt="Worst Job Image" class="worst-job-image">  <!-- 기본 이미지 -->
-  </div>
-
-  <!-- 테스트 다시하기 버튼 -->
-  <div class="retest-button">
-    <img src="./assets/images/retestButton.svg" alt="Retest Button" class="retest-button-img" />
-    <div class="retest-content">
-      <span class="retest-text">테스트 다시하기</span>
-      <img src="./assets/images/retestIcon.svg" alt="Retest Icon" class="retest-icon" />
+    <!-- 직업 이미지 컨테이너 -->
+    <div class="job-image-container">
+      <img src="./assets/images/result/result01.png" alt="직업 이미지">
     </div>
+
+    <!-- 기타 요소들 -->
+    <div class="stat-frame"></div>
+    <div class="best-job"></div>
+    <div class="worst-job"></div>
+    <div class="retest-button"></div>
   </div>
   <script type="module" src="./assets/js/result.js"></script>
 </body>
