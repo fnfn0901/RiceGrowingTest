@@ -332,3 +332,72 @@ body {
 .worst-job-frame {
     margin-left: 50px; /* 오른쪽에 배치되도록 설정 */
 }
+
+/* 다른 직업 보기 프레임 */
+.other-jobs-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 369px;
+    height: 473px; /* 프레임 크기를 369x473으로 설정 */
+    position: absolute;
+    top: 1522px; /* 상단으로부터 1522px */
+    left: 50%;
+    transform: translateX(-50%); /* 가로축 중앙 배치 */
+}
+
+/* '# 다른 직업보기' 텍스트 */
+.other-jobs-title {
+    color: #4352D2;
+    font-family: CookieRun;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    left: 29px;
+}
+
+/* 직업 묶음 프레임 */
+.jobs-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-top: 35px; /* 타이틀과의 간격 */
+}
+
+/* 중앙에 있는 쌀미 이미지 */
+.center-image {
+    position: absolute;
+    width: 174px; /* 중앙 쌀미 이미지 크기 조정 */
+    height: 143px;
+    z-index: 2;
+    border-radius: 50%;
+    opacity: 0.6; /* 투명도 60% 적용 */
+}
+
+/* 직업 아이콘 스타일 */
+.job-icon {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: 2px solid #CFCAAE;
+    background-size: cover; /* 이미지가 비율을 유지하면서 부모 요소를 완전히 덮음 */
+    background-position: center; /* 이미지가 중앙에 위치 */
+    background-color: lightgray;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.job1 { top: 10px; left: 50%; transform: translateX(-50%); } /* 12시 방향 */
+.job2 { top: 40px; right: 25px; } /* 1시 방향 */
+.job3 { top: 150px; right: 0px; } /* 3시 방향 */
+.job4 { bottom: 70px; right: 25px; } /* 5시 방향 */
+.job5 { bottom: 40px; left: 50%; transform: translateX(-50%); } /* 6시 방향 */
+.job6 { bottom: 70px; left: 25px; } /* 7시 방향 */
+.job7 { top: 150px; left: 0px; } /* 9시 방향 */
+.job8 { top: 40px; left: 25px; } /* 11시 방향 */
