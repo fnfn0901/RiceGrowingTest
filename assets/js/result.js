@@ -21,12 +21,16 @@ function displayBestAndWorstJobs(bestJob) {
     const jobImageElement = document.getElementById('job-image'); // 직업 이미지 요소 선택
     const jobTitleElement = document.querySelector('.job-title'); // 직업 제목 요소 선택
     const jobNameElement = document.querySelector('.job-name');   // 직업 이름 요소 선택
+    const jobDescriptionElement = document.querySelector('.job-description'); // 직업 설명 요소 선택
 
     // bestJob 데이터가 존재하는지 확인
     if (jobData[bestJob]) {
         jobImageElement.src = jobData[bestJob].image;  // 이미지 설정
         jobNameElement.textContent = bestJob;  // 직업 이름 설정
         jobTitleElement.textContent = bestJob; // 직업 타이틀 설정
+
+        // 직업 설명을 동적으로 추가 (각 문장에 동그라미 추가)
+        jobDescriptionElement.innerHTML = jobData[bestJob].description.map(desc => `<span>${desc}</span>`).join('');
     } else {
         console.error(`Best job (${bestJob}) not found in jobData.`);
     }
