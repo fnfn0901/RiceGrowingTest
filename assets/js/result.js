@@ -18,6 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = `${baseUrl}`; // 메인 페이지로 이동
     });
 
+    // visit 버튼 클릭 시 메인 페이지로 이동
+    const visitButton = document.querySelector('.visit-button-container');
+    retestButton.addEventListener('click', function() {
+        // 현재 URL에서 'result.html' 부분을 제거하고 메인 페이지 URL로 이동
+        const currentUrl = window.location.href;
+        window.location.href = `https://www.ssalfriends.com/home`; // 메인 페이지로 이동
+    });
+
     // job-image-container를 꾹 눌렀을 때 이미지 저장 기능 (PC에서는 기본 메뉴 사용)
     const jobImageContainer = document.querySelector('.job-image-container');
     jobImageContainer.addEventListener('contextmenu', function(event) {

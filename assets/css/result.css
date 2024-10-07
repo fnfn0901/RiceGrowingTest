@@ -363,7 +363,7 @@ body {
     position: relative;
     width: 369px;
     height: 473px;
-    margin-top: 28px;
+    margin-top: 60px;
 }
 
 /* 중앙에 있는 쌀미 이미지 */
@@ -388,13 +388,13 @@ body {
     position: absolute;
 }
 
-.job1 { top: 30px; left: 50%; transform: translateX(-50%); } /* 12시 방향 */
+.job1 { top: 10px; left: 50%; transform: translateX(-50%); } /* 12시 방향 */
 .job2 { top: 60px; right: 25px; } /* 1시 방향 */
-.job3 { top: 170px; right: 0px; } /* 3시 방향 */
-.job4 { bottom: 90px; right: 25px; } /* 5시 방향 */
-.job5 { bottom: 50px; left: 50%; transform: translateX(-50%); } /* 6시 방향 */
-.job6 { bottom: 90px; left: 25px; } /* 7시 방향 */
-.job7 { top: 170px; left: 0px; } /* 9시 방향 */
+.job3 { top: 180px; right: 0px; } /* 3시 방향 */
+.job4 { bottom: 80px; right: 25px; } /* 5시 방향 */
+.job5 { bottom: 20px; left: 50%; transform: translateX(-50%); } /* 6시 방향 */
+.job6 { bottom: 80px; left: 25px; } /* 7시 방향 */
+.job7 { top: 180px; left: 0px; } /* 9시 방향 */
 .job8 { top: 60px; left: 25px; } /* 11시 방향 */
 
 /* 이벤트 프레임 */
