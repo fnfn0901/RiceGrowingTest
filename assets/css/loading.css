@@ -1,0 +1,124 @@
+@font-face {
+    font-family: 'CookieRun';
+    src: url('../fonts/CookieRun Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'CookieRun', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    body, .container {
+        margin-top: 0px;
+    }
+}
+
+@media (min-width: 769px) {
+    body {
+        justify-content: center;
+    }
+    .progress-bar, .container {
+        margin-top: 4.8rem;
+        justify-content: center;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.background {
+    width: 23.438rem;
+    min-height: 100vh;
+    height: 100%;
+    background: url('../images/loadingBackground.jpg') lightgray -1.908px 0px / 101.018% 100% no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative; /* 부모 요소에 relative 위치 설정 */
+}
+
+.loading-text {
+    color: #000;
+    text-align: center;
+    font-family: 'CookieRun', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    width: 204px;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%); /* 중앙 정렬을 위한 설정 */
+}
+
+/* 아이콘 1 공통 크기 및 회전 */
+.icon1 img {
+    width: 66px;
+    height: 66px;
+    transform: rotate(-29deg);
+    position: absolute; /* 부모 요소에 대해 절대 위치 */
+}
+
+/* 아이콘 1 위치 설정 */
+.icon1-1 { top: 143px; left: 75px; }
+.icon1-2 { top: 185px; left: 313px; }
+.icon1-3 { top: 380px; left: 61px; }
+
+/* 아이콘 2 공통 크기 및 회전 */
+.icon2 img {
+    width: 72px;
+    height: 80px;
+    transform: rotate(-32deg);
+    position: absolute; /* 부모 요소에 대해 절대 위치 */
+}
+
+/* 아이콘 2 위치 설정 */
+.icon2-1 { top: 181px; left: -7px; }
+.icon2-2 { top: 211px; left: 117px; }
+.icon2-3 { top: 243px; left: 233px; }
+.icon2-4 { top: 278px; left: 53px; }
+.icon2-5 { top: 369px; left: -23px; }
+.icon2-6 { top: 388px; left: 184px; }
+.icon2-7 { top: 444px; left: 294px; }
+.icon2-8 { top: 500px; left: 102px; }
+.icon2-9 { top: 595px; left: 262px; }
+.icon2-10 { top: 640px; left: 157px; }
+
+/* 아이콘 3 공통 크기 */
+.icon3 img {
+    width: 48px;
+    height: 48px;
+    transform: scaleX(-1);
+    position: absolute; /* 부모 요소에 대해 절대 위치 */
+}
+
+/* 아이콘 3 위치 설정 */
+.icon3-1 { top: 218px; left: 245px; }
+.icon3-2 { top: 271px; left: 71px; }
+.icon3-3 { top: 334px; left: 185px; }
+.icon3-4 { top: 365px; left: 302px; }
+.icon3-5 { top: 476px; left: 287px; }
+.icon3-6 { top: 520px; left: 260px; }
