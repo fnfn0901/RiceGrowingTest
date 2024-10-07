@@ -18,20 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = `${baseUrl}`; // 메인 페이지로 이동
     });
 
-    // job-image-container를 꾹 눌렀을 때 이미지 저장 기능
+    // job-image-container를 꾹 눌렀을 때 이미지 저장 기능 (PC에서는 기본 메뉴 사용)
     const jobImageContainer = document.querySelector('.job-image-container');
     jobImageContainer.addEventListener('contextmenu', function(event) {
-        event.preventDefault(); // 기본 우클릭 메뉴 방지
-        const imageElement = document.getElementById('job-image'); // 이미지 요소 선택
-        const imageUrl = imageElement.src; // 이미지 URL 가져오기
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); // 모바일 여부 확인
 
-        // 다운로드 링크 생성
-        const link = document.createElement('a');
-        link.href = imageUrl; // 이미지 URL 설정
-        link.download = '직업이미지.png'; // 다운로드할 파일 이름 설정
+        if (isMobile) {
+            event.preventDefault(); // 모바일에서는 기본 우클릭 메뉴 방지
 
-        // 링크 클릭하여 다운로드 실행
-        link.click();
+            const imageElement = document.getElementById('job-image'); // 이미지 요소 선택
+            const imageUrl = imageElement.src; // 이미지 URL 가져오기
+
+            // 다운로드 링크 생성
+            const link = document.createElement('a');
+            link.href = imageUrl; // 이미지 URL 설정
+            link.download = '직업이미지.png'; // 다운로드할 파일 이름 설정
+
+            // 링크 클릭하여 다운로드 실행
+            link.click();
+        }
+        // PC에서는 기본 브라우저 우클릭 메뉴가 표시되도록 설정
     });
 });
 
