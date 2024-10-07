@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             updateQuestion();
         } else {
             const result = processUserAnswers(userAnswers);
-            window.location.href = `result.html?bestJob=${encodeURIComponent(result.bestJob)}&worstJob=${encodeURIComponent(result.worstJob)}`;
+            window.location.href = 'loading.html?bestJob=' + encodeURIComponent(result.bestJob) + '&worstJob=' + encodeURIComponent(result.worstJob);
         }
     }
 
