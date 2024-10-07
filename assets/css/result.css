@@ -38,7 +38,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 375px;
-    height: 3246px;
+    height: 2973px;
     background-image: url('../images/resultBackground.png');
     background-size: 375px 3246px;
     background-position: center;
@@ -70,7 +70,7 @@ body {
     border-radius: 30px;
     border: 2px solid #347928;
     background-color: lightgray;
-    margin-top: 33px;
+    margin-top: 28px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,25 +99,25 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    width: 354px;
-    height: 567px;
+    width: 335px;
+    height: 535px;
     flex-shrink: 0;
     position: absolute;
-    top: 552px;
+    top: 555px;
+    left: 21px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* 가로축 중앙 배치 */
 }
 
 /* '# 나의 직업유형' 텍스트 */
 .job-type-text {
     color: #4352D2;
-    font-family: CookieRunR;
+    font-family: CookieRun;
     font-size: 24px;
     font-weight: 400;
     position: absolute;
-    top: 0;  /* 상단 0 */
-    left: 25px;  /* 좌측 25px */
+    top: 0;
+    left: 0;
 }
 
 /* 설명 프레임 */
@@ -125,8 +125,8 @@ body {
     width: 305px;
     height: 280px;
     position: absolute;
-    top: 53px;  /* 상단 53 */
-    left: 24px;  /* 좌측 24 */
+    top: 66px;  /* 상단 53 */
+    left: 15px;
     border: 2px solid #347928;
     border-radius: 20px;
     background-color: #fff;
@@ -174,7 +174,7 @@ body {
     border: 0.5px solid #000;
     position: absolute;
     top: 28.76px;  /* 상단 28.76 */
-    left: 25px;  /* 우측 25 */
+    left: 25px;
 }
 
 .job-label {
@@ -201,7 +201,7 @@ body {
 /* 라인 SVG */
 .line {
     position: absolute;
-    top: 74px;  /* 상단 87 */
+    top: 76px;  /* 상단 87 */
     left: 25.2px;  /* 좌측 25.2 */
 }
 
@@ -211,9 +211,10 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 245.525px;
+    width: 246px;
+    height: 160px;
     position: absolute;
-    top: 103.32px;  /* 상단 103.32 */
+    top: 108px;  /* 상단 103.32 */
     left: 25.2px;  /* 좌측 25.2 */
 }
 
@@ -243,15 +244,15 @@ body {
     height: 209px;
     flex-shrink: 0;
     color: #000;
-    font-family: DOSIyagiBoldface;
-    font-size: 16px;
+    font-family: CookieRunR;
+    font-size: 14px;
     font-style: normal;
-    font-weight: 500;
-    line-height: 30px;
-    letter-spacing: 2.24px;
+    font-weight: 400;
+    line-height: 160%;
+    letter-spacing: 3.5px;
     position: absolute;
-    top: 380px;
-    left: 0;  /* 좌측 0 */
+    top: 358px;
+    left: 12px;  /* 좌측 0 */
 }
 
 .job-description span {
@@ -261,19 +262,17 @@ body {
 
 .job-description span::before {
     content: "●";
-    margin-right: 8px;
+    margin-right: 6px;
     color: black;
-    font-size: 10px;
+    font-size: 5px;
 }
 
 /* 베스트/워스트 직업 프레임 */
 .best-worst-frame {
     display: flex;
     justify-content: space-between; /* 베스트와 워스트를 양쪽에 배치 */
-    width: 347px;
-    height: 253px;
     position: absolute;
-    top: 1191px; /* 상단으로부터 1191px */
+    top: 1150px; /* 상단으로부터 1191px */
     left: 50%;
     transform: translateX(-50%); /* 가로축 중앙 배치 */
 }
@@ -287,6 +286,10 @@ body {
     height: 253px;
     flex-shrink: 0;
     position: relative; /* 자식 요소의 z-index 및 위치를 조정하기 위해 relative 추가 */
+}
+
+.best-job-frame {
+    margin-right: 47px;
 }
 
 /* '베스트' 텍스트 박스 */
@@ -322,15 +325,10 @@ body {
 /* 베스트 직업 이름 텍스트 */
 .best-job-name, .worst-job-name {
     color: #000;
-    font-family: DOSSaemmul;
+    font-family: DOSIyagiBoldface;
     font-size: 14px;
     font-weight: 500;
     line-height: normal;
-}
-
-/* 워스트 직업 프레임 */
-.worst-job-frame {
-    margin-left: 50px; /* 오른쪽에 배치되도록 설정 */
 }
 
 /* 다른 직업 보기 프레임 */
@@ -339,9 +337,8 @@ body {
     flex-direction: column;
     align-items: center;
     width: 369px;
-    height: 473px; /* 프레임 크기를 369x473으로 설정 */
     position: absolute;
-    top: 1522px; /* 상단으로부터 1522px */
+    top: 1463px;
     left: 50%;
     transform: translateX(-50%); /* 가로축 중앙 배치 */
 }
@@ -349,13 +346,13 @@ body {
 /* '# 다른 직업보기' 텍스트 */
 .other-jobs-title {
     color: #4352D2;
-    font-family: CookieRunR;
+    font-family: CookieRun;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
     position: absolute;
     top: 0;
-    left: 29px;
+    left: 17px;
 }
 
 /* 직업 묶음 프레임 */
@@ -364,18 +361,17 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 100%;
-    height: 100%;
-    margin-top: 35px; /* 타이틀과의 간격 */
+    width: 369px;
+    height: 473px;
+    margin-top: 28px;
 }
 
 /* 중앙에 있는 쌀미 이미지 */
 .center-image {
     position: absolute;
-    width: 174px; /* 중앙 쌀미 이미지 크기 조정 */
+    width: 170px; /* 중앙 쌀미 이미지 크기 조정 */
     height: 143px;
     z-index: 2;
-    border-radius: 50%;
     opacity: 0.6; /* 투명도 60% 적용 */
 }
 
@@ -388,29 +384,28 @@ body {
     border: 2px solid #CFCAAE;
     background-size: cover; /* 이미지가 비율을 유지하면서 부모 요소를 완전히 덮음 */
     background-position: center; /* 이미지가 중앙에 위치 */
-    background-color: lightgray;
     background-repeat: no-repeat;
     position: absolute;
 }
 
-.job1 { top: 10px; left: 50%; transform: translateX(-50%); } /* 12시 방향 */
-.job2 { top: 40px; right: 25px; } /* 1시 방향 */
-.job3 { top: 150px; right: 0px; } /* 3시 방향 */
-.job4 { bottom: 70px; right: 25px; } /* 5시 방향 */
-.job5 { bottom: 40px; left: 50%; transform: translateX(-50%); } /* 6시 방향 */
-.job6 { bottom: 70px; left: 25px; } /* 7시 방향 */
-.job7 { top: 150px; left: 0px; } /* 9시 방향 */
-.job8 { top: 40px; left: 25px; } /* 11시 방향 */
+.job1 { top: 30px; left: 50%; transform: translateX(-50%); } /* 12시 방향 */
+.job2 { top: 60px; right: 25px; } /* 1시 방향 */
+.job3 { top: 170px; right: 0px; } /* 3시 방향 */
+.job4 { bottom: 90px; right: 25px; } /* 5시 방향 */
+.job5 { bottom: 50px; left: 50%; transform: translateX(-50%); } /* 6시 방향 */
+.job6 { bottom: 90px; left: 25px; } /* 7시 방향 */
+.job7 { top: 170px; left: 0px; } /* 9시 방향 */
+.job8 { top: 60px; left: 25px; } /* 11시 방향 */
 
 /* 이벤트 프레임 */
 .event-frame {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 311px;
-    height: 698px;
+    width: 334px;
+    height: 631px;
     position: absolute;
-    top: 2129px; /* 상단으로부터 2129px */
+    top: 2062px;
     left: 50%;
     transform: translateX(-50%); /* 가로축 중앙 배치 */
 }
@@ -420,7 +415,7 @@ body {
     color: #4352D2;
     font-family: CookieRun;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
     position: absolute;
     top: 0;
@@ -428,48 +423,45 @@ body {
     text-align: center;
 }
 
-/* 이벤트 이미지 프레임 */
-.event-image-frame {
-    width: 300px;
-    height: 644px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    border: 2px solid #000;
-    background-color: lightgray;
-    position: absolute;
-    top: 54px; /* 상단 54 */
-    left: 11px; /* 좌측 11 */
-}
-
 /* 이벤트 이미지 */
 .event-image {
-    width: 100%;
-    height: 100%;
+    width: 333px;
+    height: 565px;
     object-fit: fill; /* 이미지를 프레임에 꽉 채움 */
-    border-radius: 20px; /* 프레임 모서리에 맞게 이미지 둥글게 */
+    border-radius: 10px; /* 프레임 모서리에 맞게 이미지 둥글게 */
+    border: 2px solid #000; /* 이미지에 직접 border 적용 */
+    position: absolute;
+    top: 66px;
+    left: 50%;
+    transform: translateX(-50%); /* 가로축 중앙 배치 */
 }
 
-/* 이벤트 프레임 아래의 '테스트 다시하기' 버튼 */
+/* 테스트 다시하기, 방문하기 버튼 스타일 */
+.retest-button-container, .visit-button-container {
+    display: inline-flex;
+    width: 217px;
+    height: 26px;
+    padding: 20px;
+    align-items: center;
+    gap: 12px;
+    border-radius: 10px;
+    background: #000;
+    justify-content: center;
+    cursor: pointer;
+}
+
 .retest-button-container {
     position: absolute;
-    top: 2924px; /* 상단 2924px */
+    top: 2753px;
     left: 50%;
-    transform: translateX(-50%); /* 가로축 중앙 배치 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    transform: translateX(-50%);
 }
-
+  
 .visit-button-container {
     position: absolute;
-    top: 3004px;
+    top: 2847px;
     left: 50%;
-    transform: translateX(-50%); /* 가로축 중앙 배치 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    transform: translateX(-50%);
 }
 
 .retest-button-image, .visit-button-image {
@@ -501,7 +493,12 @@ body {
     text-align: center;
 }
 
-.retest-icon, .visit-icon {
-    width: 24px; /* 리셋 아이콘 크기 */
+.retest-icon {
+    width: 21px; /* 리셋 아이콘 크기 */
+    height: 18px;
+}
+
+.visit-icon {
+    width: 18px;
     height: 24px;
 }
