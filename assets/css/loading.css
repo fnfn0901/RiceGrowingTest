@@ -134,7 +134,7 @@ body {
     width: 66px;
     height: 66px;
     position: absolute;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
@@ -163,7 +163,7 @@ body {
     width: 72px;
     height: 80px;
     position: absolute;
-    animation-duration: 5s;
+    animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
@@ -234,7 +234,7 @@ body {
     width: 48px;
     height: 48px;
     position: absolute;
-    animation-duration: 6s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }

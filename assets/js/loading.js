@@ -8,5 +8,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // 5초 후에 result.html로 리다이렉트
     setTimeout(function() {
         window.location.href = `result.html?bestJob=${encodeURIComponent(bestJob)}&worstJob=${encodeURIComponent(worstJob)}`;
-    }, 4000); 
+}, 4000); 
 });
