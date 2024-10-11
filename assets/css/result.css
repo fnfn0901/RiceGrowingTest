@@ -234,6 +234,44 @@ body {
     margin-bottom: 0;
 }
 
+.stat-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 텍스트와 바가 왼쪽 정렬 */
+    margin-bottom: 10px; /* 스탯 바 간의 간격 */
+    position: relative;
+}
+
+.stat-bar-container span {
+width: 50px; /* 스탯 이름 표시 */
+font-family: DOSSaemmul;
+font-size: 14px;
+font-weight: 500;
+text-align: left; /* 텍스트 왼쪽 정렬 */
+margin-right: 10px;
+}
+
+.stat-bar-background {
+width: 170.5px; /* 바깥 바의 크기 */
+height: 16px;
+border-radius: 10px;
+border: 1px solid #000;
+background-color: #fff;
+position: relative;
+}
+  
+  .stat-bar-fill {
+    height: 11.5px;
+    background-color: #347928;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 2.75px;
+    transform: translateY(-50%);
+    width: 0; /* 초기 너비 0% */
+    transition: width 1s ease-in-out; /* 부드러운 애니메이션 */
+  }
+
 /* 직업 설명 */
 .job-description {
     display: flex;

@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 직업 및 스탯 정보를 화면에 표시
     displayBestAndWorstJobs(bestJob, worstJob);
-    displayStats(bestJob);
+    
+    // 스탯 바를 감시하는 Intersection Observer 설정
+    observeStats();
 
     // 재시험 버튼 클릭 시 현재 URL에서 'result.html' 부분을 제거하고 메인 페이지로 이동
     const retestButton = document.querySelector('.retest-button-container');
@@ -86,20 +88,50 @@ function displayBestAndWorstJobs(bestJob, worstJob) {
     }
 }
 
+// 스탯 값을 동적으로 업데이트하는 함수
+function updateStatBar(statId, value, maxValue) {
+    const bar = document.getElementById(statId);
+    const percentage = (value / maxValue) * 100; // 백분율 계산
+    bar.style.width = `${percentage}%`; // 너비를 백분율에 맞게 설정
+}
+
 // 스탯 정보를 화면에 표시하는 함수
 function displayStats(bestJob) {
-    const statValues = jobData[bestJob]?.stats || { 체력: 50, 정신력: 50, 근력: 50, 순발력: 50, 지능: 50, 친화력: 50 };
+    const statValues = jobData[bestJob]?.stats || { 체력: 50, 창의력: 50, 집중력: 50, 분석력: 50, 친화력: 50, 행동력: 50 };
 
-    const statsContainer = document.querySelector('.stats'); // 스탯 창 요소 선택
-    console.log('Stat values:', statValues); // 스탯 값을 콘솔에 출력하여 확인
+    // 각 스탯 바 업데이트 (애니메이션 적용)
+    updateStatBar('stat-health', statValues.체력, 100);
+    updateStatBar('stat-creativity', statValues.창의력, 100);
+    updateStatBar('stat-focus', statValues.집중력, 100);
+    updateStatBar('stat-analysis', statValues.분석력, 100);
+    updateStatBar('stat-affinity', statValues.친화력, 100);
+    updateStatBar('stat-activity', statValues.행동력, 100);
+}
 
-    // 스탯 데이터를 HTML로 삽입
-    statsContainer.innerHTML = `
-        <div>체력 : ${statValues.체력} / 100</div>
-        <div>정신력 : ${statValues.정신력} / 100</div>
-        <div>근력 : ${statValues.근력} / 100</div>
-        <div>순발력 : ${statValues.순발력} / 100</div>
-        <div>지능 : ${statValues.지능} / 100</div>
-        <div>친화력 : ${statValues.친화력} / 100</div>
-    `;
+// Intersection Observer를 사용하여 'stat-activity'가 화면에 나타났을 때 애니메이션 5초 후에 시작
+function observeStats() {
+    const statActivity = document.getElementById('stat-activity'); // '행동력' 스탯 바 요소 선택
+
+    // Intersection Observer 콜백 함수
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // '행동력' 스탯 바가 화면에 나타났을 때 5초 후 애니메이션 실행
+                setTimeout(() => {
+                    const bestJob = new URLSearchParams(window.location.search).get('bestJob');
+                    displayStats(bestJob); // 스탯 바 애니메이션 시작
+                }, 800);
+                observer.disconnect(); // 한 번 실행 후 더 이상 감시하지 않도록 설정
+            }
+        });
+    };
+
+    // Intersection Observer 설정 (threshold: 0.1 -> 요소가 10%만 보여도 감지)
+    const observerOptions = {
+        root: null, // 뷰포트를 기준으로 감시
+        threshold: 0.1 // 10% 이상 보일 때 트리거
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    observer.observe(statActivity); // '행동력' 스탯 바 감시 시작
 }

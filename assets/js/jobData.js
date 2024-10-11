@@ -9,7 +9,7 @@ export const jobData = {
             "특별한 걸 만드는 게 내 특기지!",
             "내가 지나가면 특별함만 남지!"
         ],
-        stats: { 체력: 83, 정신력: 52, 근력: 47, 순발력: 91, 지능: 64, 친화력: 73 },
+        stats: { 체력: 55, 창의력: 90, 집중력: 60, 분석력: 50, 친화력: 70, 행동력: 85 },
         image: './assets/images/result/result01.png',
         incrementScore: function(answer) {
             if (answer === 'A') return 5;
@@ -26,7 +26,7 @@ export const jobData = {
             "오늘은 핑계 말고 기회를 찾아볼까?",
             "지금 이 순간이 진짜 레전드!"
         ],
-        stats: { 체력: 67, 정신력: 85, 근력: 58, 순발력: 63, 지능: 74, 친화력: 92 },
+        stats: { 체력: 65, 창의력: 60, 집중력: 85, 분석력: 80, 친화력: 70, 행동력: 50 },
         image: './assets/images/result/result02.png',
         incrementScore: function(answer) {
             if (answer === 'A') return 2;
@@ -43,7 +43,7 @@ export const jobData = {
             "변화와 혁신, 그게 내가 가는 길!",
             "순간의 영감이 날 이끄는 동력이지!"
         ],
-        stats: { 체력: 55, 정신력: 93, 근력: 61, 순발력: 54, 지능: 82, 친화력: 68 },
+        stats: { 체력: 50, 창의력: 75, 집중력: 80, 분석력: 90, 친화력: 55, 행동력: 60 },
         image: './assets/images/result/result03.png',
         incrementScore: function(answer) {
             if (answer === 'B') return 4;
@@ -60,7 +60,7 @@ export const jobData = {
             "한 걸음 한 걸음, 완성도를 높이는 중!",
             "계획 세우기? 그건 내 전문이지!"
         ],
-        stats: { 체력: 74, 정신력: 72, 근력: 83, 순발력: 62, 지능: 88, 친화력: 57 },
+        stats: { 체력: 80, 창의력: 55, 집중력: 75, 분석력: 85, 친화력: 60, 행동력: 55 },
         image: './assets/images/result/result04.png',
         incrementScore: function(answer) {
             if (answer === 'A') return 4;
@@ -77,7 +77,7 @@ export const jobData = {
             "과정 속에서 즐거움을 찾는 게 내 방식!",
             "늘 더 나은 결과를 만들어내고 있어!"
         ],
-        stats: { 체력: 63, 정신력: 67, 근력: 72, 순발력: 85, 지능: 91, 친화력: 53 },
+        stats: { 체력: 60, 창의력: 80, 집중력: 70, 분석력: 85, 친화력: 55, 행동력: 60 },
         image: './assets/images/result/result05.png',
         incrementScore: function(answer) {
             if (answer === 'A') return 3;
@@ -94,7 +94,7 @@ export const jobData = {
             "늘 더 나아지기 위해 발전 중이야!",
             "창의적인 아이디어가 폭발하는 순간!"
         ],
-        stats: { 체력: 72, 정신력: 65, 근력: 54, 순발력: 89, 지능: 83, 친화력: 62 },
+        stats: { 체력: 60, 창의력: 90, 집중력: 65, 분석력: 55, 친화력: 80, 행동력: 60 },
         image: './assets/images/result/result06.png',
         incrementScore: function(answer) {
             if (answer === 'A') return 5;
@@ -111,7 +111,7 @@ export const jobData = {
             "새로운 시각으로 세상을 바라보는 중!",
             "매일 배움에서 즐거움을 찾는 나!"
         ],
-        stats: { 체력: 53, 정신력: 88, 근력: 63, 순발력: 52, 지능: 84, 친화력: 71 },
+        stats: { 체력: 50, 창의력: 75, 집중력: 85, 분석력: 90, 친화력: 55, 행동력: 55 },
         image: './assets/images/result/result07.png',
         incrementScore: function(answer) {
             if (answer === 'B') return 3;
@@ -128,7 +128,7 @@ export const jobData = {
             "포기란 없어, 도전만이 있을 뿐!",
             "매일 더 나은 결과를 위해 달린다!"
         ],
-        stats: { 체력: 61, 정신력: 82, 근력: 75, 순발력: 59, 지능: 92, 친화력: 56 },
+        stats: { 체력: 60, 창의력: 80, 집중력: 70, 분석력: 85, 친화력: 50, 행동력: 65 },
         image: './assets/images/result/result08.png',
         incrementScore: function(answer) {
             if (answer === 'A') return 4;
