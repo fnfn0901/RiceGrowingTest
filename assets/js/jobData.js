@@ -145,44 +145,41 @@ export const jobs = Object.keys(jobData).map(jobName => ({
 
 // 점수 추가 로직
 export function addScore(questionIndex, answer) {
-    const jobNames = Object.keys(jobData);
-    
-    jobNames.forEach(jobName => {
-        const job = jobData[jobName];
-        if (job.incrementScore) {
-            job.stats['score'] = (job.stats['score'] || 0) + job.incrementScore(answer);
+    jobs.forEach(job => {
+        const jobDetails = jobData[job.name];
+        if (jobDetails.incrementScore) {
+            job.score += jobDetails.incrementScore(answer);  // 별도의 score 필드에 점수 누적
         }
     });
 }
 
 // 결과 계산 로직
 export function getFinalResult() {
-    const jobNames = Object.keys(jobData);
-    let maxScore = -Infinity;  // 최대 점수의 초기값을 -Infinity로 설정
-    let minScore = Infinity;   // 최소 점수의 초기값을 Infinity로 설정
+    let maxScore = -Infinity;
+    let minScore = Infinity;
     let bestJob = null;
     let worstJob = null;
 
-    jobNames.forEach(jobName => {
-        const score = jobData[jobName].stats['score'] || 0;
+    jobs.forEach(job => {
+        const score = job.score;
 
         // 최대 점수 업데이트
         if (score > maxScore) {
             maxScore = score;
-            bestJob = jobName;
+            bestJob = job.name;
         }
 
         // 최소 점수 업데이트
         if (score < minScore) {
             minScore = score;
-            worstJob = jobName;
+            worstJob = job.name;
         }
     });
 
-    // 베스트와 워스트가 동일할 경우 처리
+    // 베스트와 워스트가 동일할 경우 처리 (예외 처리)
     if (bestJob === worstJob) {
-        // 예외 처리 로직 추가 (예: 최종 점수가 동일할 때 다른 직업 선택)
-        worstJob = jobNames.find(jobName => jobName !== bestJob);
+        const otherJobs = jobs.filter(job => job.name !== bestJob);
+        worstJob = otherJobs.length > 0 ? otherJobs[Math.floor(Math.random() * otherJobs.length)].name : bestJob;
     }
 
     return { bestJob, worstJob };
