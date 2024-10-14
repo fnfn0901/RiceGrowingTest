@@ -31,4 +31,4 @@ jobs:
 
       - name: Connect to EC2 and deploy
         run: |
-          ssh -o StrictHostKeyChecking=no -i /tmp/SsalBTI-KeyPair.pem ec2-user@43.202.66.204 "aws s3 sync s3://ssalbtibucket/ /path/to/local/directory"
+          ssh -o StrictHostKeyChecking=no -i /tmp/SsalBTI-KeyPair.pem ec2-user@43.202.66.204 "aws s3 sync s3://ssalbtibucket/ /home/ec2-user/my-directory"
