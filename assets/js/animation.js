@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const copySuccessMessage = document.getElementById('copy-success');
     const participantsText = document.getElementById('participant-count');
 
-    // 참여자 수 불러오기
+    // 참여자 수 불러오기 (S3에서 직접)
     function loadParticipants() {
-        fetch('http://43.202.66.204/update_participants.php') // EC2의 PHP 파일 경로
+        fetch('https://ssalbtibucket.s3.ap-northeast-2.amazonaws.com/assets/data/participants.json') // S3의 participants.json 파일 URL
             .then(response => response.json())
             .then(data => {
                 participantsText.textContent = `참여자 수 | ${data.count}명`;
