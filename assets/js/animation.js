@@ -2,12 +2,40 @@ document.addEventListener('DOMContentLoaded', function() {
     const playButton = document.querySelector('.play-button');
     const copyLinkButton = document.getElementById('copy-link-btn');
     const copySuccessMessage = document.getElementById('copy-success');
+    const participantsText = document.getElementById('participant-count');
 
-    // 시작 버튼 클릭 시 질문 화면으로 이동
+    // 참여자 수 불러오기
+    function loadParticipants() {
+        fetch('http://43.202.66.204/update_participants.php') // EC2의 PHP 파일 경로
+            .then(response => response.json())
+            .then(data => {
+                participantsText.textContent = `참여자 수 | ${data.count}명`;
+            })
+            .catch(error => {
+                console.error('참여자 수 불러오기 실패:', error);
+                participantsText.textContent = '불러오기 실패';
+            });
+    }
+
+    // 참여자 수 업데이트 함수
+    function updateParticipants() {
+        fetch('http://43.202.66.204/update_participants.php') // EC2의 PHP 파일 경로
+            .then(response => response.json())
+            .then(data => {
+                participantsText.textContent = `참여자 수 | ${data.count}명`;
+            })
+            .catch(error => console.error('참여자 수 업데이트 실패:', error));
+    }
+
+    // 페이지 로드 시 참여자 수 불러오기
+    loadParticipants();  // 페이지가 로드될 때 호출
+
+    // 시작 버튼 클릭 시 질문 화면으로 이동 및 참여자 수 업데이트
     playButton.addEventListener('click', function() {
+        updateParticipants();  // 참여자 수 업데이트 호출
         window.location.href = 'question.html'; // 질문 화면 파일로 이동
     });
-    
+
     // 카카오톡 공유 버튼 클릭 이벤트
     document.getElementById('kakao-link-btn').addEventListener('click', function() {
         Kakao.Link.sendDefault({
