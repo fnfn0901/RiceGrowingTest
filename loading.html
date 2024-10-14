@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/loading.css" as="style">
     <title>로딩 페이지</title>
+    <!-- result.css 미리 로드 -->
+    <link rel="preload" href="./assets/css/result.css" as="style">
 
-    <!-- result.html 미리 로딩 -->
-    <link rel="preload" href="result.html">
+    <!-- result.js 미리 로드 -->
+    <link rel="preload" href="./assets/js/result.js" as="script">
+
+    <!-- result.html 미리 로드 -->
+    <link rel="prefetch" href="result.html" as="document">
 </head>
 <body>
     <div class="background">
