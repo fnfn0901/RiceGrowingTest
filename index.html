@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>쌀 키우기 테스트</title>
   <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script>
+    // 카카오톡 SDK 초기화
+    Kakao.init('d710690f7d05a88c3d2eb295b3f39e4a');  // JavaScript 키 설정
+  </script>
 </head>
 <body>
   <div class="container">
@@ -16,9 +21,8 @@
       </div>
       <div class="participants-text">참여자 수 | 2,432명</div>
       <div class="share-buttons">
-        <div class="share-button">
-          <img src="./assets/images/kakaoButton.png" alt="카카오톡 버튼" class="kakao-icon icon">
-          <span class="share-text">카카오톡</span>
+        <div class="share-button" id="kakao-link-btn">
+          <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt="카카오톡 공유하기" class="kakao-icon icon">          <span class="share-text">카카오톡</span>
         </div>
         <div class="share-button" style="position: relative;">
           <img src="./assets/images/shareButton.svg" alt="링크복사 버튼" class="link-icon icon" id="copy-link-btn">
