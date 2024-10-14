@@ -135,7 +135,6 @@ body {
 .kakao-icon, .icon {
     width: 2.27rem; /* 36.288px */
     height: 2.27rem; /* 이미지가 컨테이너에 맞는지 확인 */
-    border-radius: 50%;  /* 원형 모양 유지 */
     overflow: hidden;    /* 원 밖으로 나오는 이미지를 숨김 */
 }
 
