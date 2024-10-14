@@ -24,6 +24,11 @@ jobs:
         run: |
           aws s3 sync ./ s3://ssalbtibucket/ --delete
 
+      - name: Create PEM file
+        run: |
+          echo "${{ secrets.PEM_FILE }}" > /tmp/SsalBTI-KeyPair.pem
+          chmod 400 /tmp/SsalBTI-KeyPair.pem
+
       - name: Connect to EC2 and deploy
         run: |
-          ssh -i /path/to/your/pem/file ec2-user@43.202.66.204 "aws s3 sync s3://ssalbtibucket/ /path/to/local/directory"
+          ssh -i /tmp/SsalBTI-KeyPair.pem ec2-user@43.202.66.204 "aws s3 sync s3://ssalbtibucket/ /path/to/local/directory"
