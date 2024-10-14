@@ -1,16 +1,16 @@
-name: Deploy to S3
+name: Deploy to S3 and EC2
 
 on:
   push:
     branches:
-      - main  # main 브랜치에 푸시가 있을 때 실행
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Configure AWS credentials
@@ -18,8 +18,12 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ap-northeast-2  # 서울 리전
 
       - name: Sync files to S3
         run: |
-          aws s3 sync . s3://ssalbtibucket --exclude ".git/*"
+          aws s3 sync ./ s3://ssalbtibucket/ --delete
+
+      - name: Connect to EC2 and deploy
+        run: |
+          ssh -i /path/to/your/pem/file ec2-user@43.202.66.204 "aws s3 sync s3://ssalbtibucket/ /path/to/local/directory"
