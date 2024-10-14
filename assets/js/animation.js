@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             content: {
                 title: '쌀 키우기 테스트',
                 description: '당신의 쌀 농부 유형은 무엇일까요? 지금 바로 테스트해 보세요!',
-                imageUrl: '../images/BackgroundImage.png',  // 이미지 URL 수정
+                imageUrl: 'https://ssalbtibucket.s3.amazonaws.com/BackgroundImage.png',  // 이미지 URL 수정
                 link: {
                     mobileWebUrl: 'http://43.202.66.204',  // AWS EC2 URL로 설정
                     webUrl: 'http://43.202.66.204'
