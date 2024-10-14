@@ -26,7 +26,7 @@ jobs:
 
       - name: Create PEM file
         run: |
-          echo "${{ secrets.PEM_FILE }}" > /tmp/SsalBTI-KeyPair.pem
+          echo "${{ secrets.PEM_FILE }}" | tr -d '\r' > /tmp/SsalBTI-KeyPair.pem
           chmod 400 /tmp/SsalBTI-KeyPair.pem
 
       - name: Connect to EC2 and deploy
