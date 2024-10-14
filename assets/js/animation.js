@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('https://ssalbtibucket.s3.ap-northeast-2.amazonaws.com/assets/data/participants.json') // S3의 participants.json 파일 URL
             .then(response => response.json())
             .then(data => {
-                participantsText.textContent = `참여자 수 | ${data.count}명`;
+                participantsText.textContent = `${data.count}명`;
             })
             .catch(error => {
                 console.error('참여자 수 불러오기 실패:', error);
