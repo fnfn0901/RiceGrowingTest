@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 참여자 수 업데이트 함수
     function updateParticipants() {
-        fetch('http://43.202.66.204/update_participants.php') // EC2의 PHP 파일 경로
+        fetch('http://43.202.66.204/update_participants.php')  // EC2의 PHP 파일 경로
             .then(response => response.json())
             .then(data => {
-                participantsText.textContent = `참여자 수 | ${data.count}명`;
+                participantsText.textContent = `참여자 수 | ${data.count}명`;  // 참여자 수 업데이트
             })
             .catch(error => console.error('참여자 수 업데이트 실패:', error));
     }
