@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 참여자 수 불러오기 (S3에서 직접)
     function loadParticipants() {
-        fetch('https://ssalbtibucket.s3.ap-northeast-2.amazonaws.com/assets/data/participants.json', {
+        fetch('https://ssalbtis3bucket.s3.ap-northeast-2.amazonaws.com/assets/data/participants.json', {
             mode: 'cors'  // CORS 모드 명시
         })
         .then(response => {
