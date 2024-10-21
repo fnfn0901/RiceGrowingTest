@@ -1,34 +1,24 @@
-name: Deploy to S3 and EC2
+name: Deploy to S3
 
 on:
   push:
     branches:
-      - main
+      - main  # main 브랜치로 푸시될 때 실행
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest  # 여기는 GitHub Actions 실행 환경이므로 ubuntu로 설정
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2  # 서울 리전
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-northeast-2  # S3 버킷이 위치한 리전으로 변경
 
-      - name: Sync files to S3
-        run: |
-          aws s3 sync ./ s3://ssalbtibucket/ --delete
-
-      - name: Create PEM file
-        run: |
-          echo "${{ secrets.PEM_FILE }}" | tr -d '\r' > /tmp/SsalBTI-KeyPair.pem
-          chmod 400 /tmp/SsalBTI-KeyPair.pem
-
-      - name: Connect to EC2 and deploy
-        run: |
-          ssh -o StrictHostKeyChecking=no -i /tmp/SsalBTI-KeyPair.pem ec2-user@43.202.66.204 "aws s3 sync s3://ssalbtibucket/ /home/ec2-user/my-directory"
+    - name: Sync files to S3
+      run: |
+        aws s3 sync . s3://ssalbtis3bucket --delete
