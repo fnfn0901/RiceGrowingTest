@@ -6,15 +6,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 참여자 수 불러오기 (S3에서 직접)
     function loadParticipants() {
-        fetch('https://ssalbtibucket.s3.ap-northeast-2.amazonaws.com/assets/data/participants.json') // S3의 participants.json 파일 URL
-            .then(response => response.json())
-            .then(data => {
-                participantsText.textContent = `${data.count}명`;
-            })
-            .catch(error => {
-                console.error('참여자 수 불러오기 실패:', error);
-                participantsText.textContent = '불러오기 실패';
-            });
+        fetch('https://ssalbtibucket.s3.ap-northeast-2.amazonaws.com/assets/data/participants.json', {
+            mode: 'cors'  // CORS 모드 명시
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            participantsText.textContent = `${data.count}명`;
+        })
+        .catch(error => {
+            console.error('참여자 수 불러오기 실패:', error);
+            participantsText.textContent = '불러오기 실패';
+        });
     }
 
     // 참여자 수 업데이트 함수
