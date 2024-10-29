@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    console.log("DOMContentLoaded event triggered");  // 확인 로그
+    loadParticipants();  // 페이지가 로드될 때 호출
+    
     const playButton = document.querySelector('.play-button');
     const copyLinkButton = document.getElementById('copy-link-btn');
     const copySuccessMessage = document.getElementById('copy-success');
@@ -6,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 참여자 수 불러오기 (S3에서 직접)
     function loadParticipants() {
+        console.log("Fetching participants data...");  // 함수 호출 확인
+    
         fetch('https://ssalbtis3bucket.s3.ap-northeast-2.amazonaws.com/assets/data/participants.json', {
             mode: 'cors'  // CORS 모드 명시
         })
