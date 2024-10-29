@@ -10,12 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
             mode: 'cors'  // CORS 모드 명시
         })
         .then(response => {
+            console.log("Fetch response:", response);  // 응답 확인
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
         .then(data => {
+            console.log("Data:", data);  // 데이터 확인
             participantsText.textContent = `${data.count}명`;
         })
         .catch(error => {
