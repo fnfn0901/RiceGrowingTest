@@ -58,18 +58,18 @@ document.addEventListener('DOMContentLoaded', function() {
             content: {
                 title: '쌀 키우기 테스트',
                 description: '당신의 쌀 농부 유형은 무엇일까요? 지금 바로 테스트해 보세요!',
-                imageUrl: 'https://ssalbtibucket.s3.ap-northeast-2.amazonaws.com/assets/images/BackgroundImage.png',
+                imageUrl: 'https://ssalbtis3bucket.s3.ap-northeast-2.amazonaws.com/assets/images/BackgroundImage.png',
                 link: {
-                    mobileWebUrl: 'http://43.202.66.204',  // AWS EC2 URL로 설정
-                    webUrl: 'http://43.202.66.204'
+                    mobileWebUrl: 'http://3.35.52.206',  // AWS EC2 URL로 설정
+                    webUrl: 'http://3.35.52.206'
                 }
             },
             buttons: [
                 {
                     title: '테스트하러 가기',
                     link: {
-                        mobileWebUrl: 'http://43.202.66.204',
-                        webUrl: 'http://43.202.66.204'
+                        mobileWebUrl: 'http://3.35.52.206',
+                        webUrl: 'http://3.35.52.206'
                     }
                 }
             ]
