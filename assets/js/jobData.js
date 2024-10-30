@@ -12,8 +12,7 @@ export const jobData = {
         stats: { 체력: 55, 창의력: 90, 집중력: 60, 분석력: 50, 친화력: 70, 행동력: 85 },
         image: './assets/images/result/result01.png',
         incrementScore: function(answer) {
-            if (answer === 'A') return 5;
-            return 3;
+            return answer === 'A' ? 4 : 3;
         }
     },
     "쌀 유통 관리사": {
@@ -29,8 +28,7 @@ export const jobData = {
         stats: { 체력: 65, 창의력: 60, 집중력: 85, 분석력: 80, 친화력: 70, 행동력: 50 },
         image: './assets/images/result/result02.png',
         incrementScore: function(answer) {
-            if (answer === 'A') return 2;
-            return 4;
+            return answer === 'A' ? 3 : 5;
         }
     },
     "친환경 쌀 연구원": {
@@ -46,8 +44,7 @@ export const jobData = {
         stats: { 체력: 50, 창의력: 75, 집중력: 80, 분석력: 90, 친화력: 55, 행동력: 60 },
         image: './assets/images/result/result03.png',
         incrementScore: function(answer) {
-            if (answer === 'B') return 4;
-            return 1;
+            return answer === 'B' ? 4 : 2;
         }
     },
     "쌀 농업 경영자": {
@@ -63,8 +60,7 @@ export const jobData = {
         stats: { 체력: 80, 창의력: 55, 집중력: 75, 분석력: 85, 친화력: 60, 행동력: 55 },
         image: './assets/images/result/result04.png',
         incrementScore: function(answer) {
-            if (answer === 'A') return 4;
-            return 2;
+            return answer === 'A' ? 5 : 3;
         }
     },
     "쌀 가공 기술자": {
@@ -80,8 +76,7 @@ export const jobData = {
         stats: { 체력: 60, 창의력: 80, 집중력: 70, 분석력: 85, 친화력: 55, 행동력: 60 },
         image: './assets/images/result/result05.png',
         incrementScore: function(answer) {
-            if (answer === 'A') return 3;
-            return 2;
+            return answer === 'A' ? 4 : 2;
         }
     },
     "쌀 브랜드 마케터": {
@@ -97,8 +92,7 @@ export const jobData = {
         stats: { 체력: 60, 창의력: 90, 집중력: 65, 분석력: 55, 친화력: 80, 행동력: 60 },
         image: './assets/images/result/result06.png',
         incrementScore: function(answer) {
-            if (answer === 'A') return 5;
-            return 2;
+            return answer === 'A' ? 3 : 4;
         }
     },
     "쌀 문화 연구가": {
@@ -114,8 +108,7 @@ export const jobData = {
         stats: { 체력: 50, 창의력: 75, 집중력: 85, 분석력: 90, 친화력: 55, 행동력: 55 },
         image: './assets/images/result/result07.png',
         incrementScore: function(answer) {
-            if (answer === 'B') return 3;
-            return 1;
+            return answer === 'B' ? 3 : 4;
         }
     },
     "쌀 품종 개발자": {
@@ -131,8 +124,7 @@ export const jobData = {
         stats: { 체력: 60, 창의력: 80, 집중력: 70, 분석력: 85, 친화력: 50, 행동력: 65 },
         image: './assets/images/result/result08.png',
         incrementScore: function(answer) {
-            if (answer === 'A') return 4;
-            return 2;
+            return answer === 'A' ? 5 : 3;
         }
     }
 };
@@ -147,9 +139,7 @@ export const jobs = Object.keys(jobData).map(jobName => ({
 export function addScore(questionIndex, answer) {
     jobs.forEach(job => {
         const jobDetails = jobData[job.name];
-        if (jobDetails.incrementScore) {
-            job.score += jobDetails.incrementScore(answer);  // 별도의 score 필드에 점수 누적
-        }
+        job.score += jobDetails.incrementScore(answer);  // 별도의 score 필드에 점수 누적
     });
 }
 
@@ -176,10 +166,21 @@ export function getFinalResult() {
         }
     });
 
-    // 베스트와 워스트가 동일할 경우 처리 (예외 처리)
+    // 동일한 점수의 다른 직업이 있을 경우 처리
+    const maxScoreJobs = jobs.filter(job => job.score === maxScore);
+    const minScoreJobs = jobs.filter(job => job.score === minScore);
+
+    if (maxScoreJobs.length > 1) {
+        bestJob = maxScoreJobs[Math.floor(Math.random() * maxScoreJobs.length)].name;
+    }
+    
+    if (minScoreJobs.length > 1) {
+        worstJob = minScoreJobs[Math.floor(Math.random() * minScoreJobs.length)].name;
+    }
+
+    // 예외 처리: bestJob과 worstJob이 동일할 경우
     if (bestJob === worstJob) {
-        const otherJobs = jobs.filter(job => job.name !== bestJob);
-        worstJob = otherJobs.length > 0 ? otherJobs[Math.floor(Math.random() * otherJobs.length)].name : bestJob;
+        worstJob = minScoreJobs.filter(job => job.name !== bestJob)[0]?.name || worstJob;
     }
 
     return { bestJob, worstJob };
