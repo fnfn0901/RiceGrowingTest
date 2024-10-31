@@ -7,17 +7,17 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # 여기는 GitHub Actions 실행 환경이므로 ubuntu로 설정
+    runs-on: ubuntu-latest 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ap-northeast-2  # S3 버킷이 위치한 리전으로 변경
+        aws-region: ap-northeast-2 
 
     - name: Sync files to S3
       run: |
