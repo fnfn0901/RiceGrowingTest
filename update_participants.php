@@ -25,10 +25,13 @@ try {
         'Bucket' => $bucket,
         'Key'    => $key,
     ]);
+    
+    error_log("Fetched data successfully."); // 성공 로그 추가
 
     // 파일 내용을 읽고 JSON 디코딩
     $data = json_decode($result['Body'], true);
-    
+    error_log("Data before update: " . print_r($data, true)); // 업데이트 전 데이터 확인
+
     if (isset($data['count'])) {
         $data['count'] += 1;  // 참여자 수 증가
     } else {
@@ -44,8 +47,11 @@ try {
     ]);
 
     echo json_encode(['count' => $data['count']]);
-
 } catch (AwsException $e) {
+    error_log("AWS Exception: " . $e->getMessage()); // AWS 예외 로그 추가
+    echo "Error: " . $e->getMessage();
+} catch (Exception $e) {
+    error_log("General Exception: " . $e->getMessage()); // 일반 예외 로그 추가
     echo "Error: " . $e->getMessage();
 }
 ?>
