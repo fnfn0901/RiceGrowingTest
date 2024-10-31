@@ -8,13 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const copySuccessMessage = document.getElementById('copy-success');
     const participantsText = document.getElementById('participant-count');
 
-    // 참여자 수 불러오기 (S3에서 직접)
+    // 참여자 수 불러오기 (EC2의 PHP 파일을 통해)
     function loadParticipants() {
         console.log("Fetching participants data...");  // 함수 호출 확인
-    
-        fetch('https://ssalbtis3bucket.s3.ap-northeast-2.amazonaws.com/assets/data/participants.json', {
-            mode: 'cors'  // CORS 모드 명시
-        })
+
+        fetch('http://3.35.52.206/update_participants.php')  // EC2의 PHP 파일 경로
         .then(response => {
             console.log("Fetch response:", response);  // 응답 확인
             if (!response.ok) {
@@ -31,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
             participantsText.textContent = '불러오기 실패';
         });
     }
-
     // 참여자 수 업데이트 함수
     function updateParticipants() {
         fetch('http://3.35.52.206/update_participants.php')  // EC2의 PHP 파일 경로
