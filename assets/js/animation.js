@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 참여자 수 업데이트 함수
     function updateParticipants() {
         fetch('http://3.35.52.206/update_participants.php')
-        .then(responsefetch('http://3.35.52.206/update_participants.php')
         .then(response => response.text())  // 우선 텍스트로 응답 받기
         .then(text => {
             console.log("서버로부터의 응답:", text);  // 텍스트로 응답을 출력하여 JSON 형식인지 확인
@@ -29,8 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('참여자 수 불러오기 실패:', error);
             participantsText.textContent = '불러오기 실패';
         });
-
-
     }
 
     // 페이지 로드 시 참여자 수 불러오기
