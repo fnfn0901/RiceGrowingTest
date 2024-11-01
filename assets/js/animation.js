@@ -9,16 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // 참여자 수 업데이트 함수
     function updateParticipants() {
         fetch('http://3.35.52.206/update_participants.php')
-        .then(response => response.text())  // 응답을 텍스트로 변환
+        .then(response => response.text())  // 우선 텍스트로 변환
         .then(text => {
-            console.log("응답 텍스트:", text);  // 응답 텍스트를 출력하여 JSON 형식 확인
-            return JSON.parse(text);  // JSON으로 파싱
-        })
-        .then(data => {
-            if (data.count !== undefined) {
-                participantsText.textContent = `${data.count}명`;
-            } else {
-                console.error("JSON 응답에서 count를 찾을 수 없습니다.", data);
+            console.log("응답 텍스트:", text);  // 응답 텍스트 출력
+            try {
+                const data = JSON.parse(text);  // JSON으로 파싱 시도
+                if (data.count !== undefined) {
+                    participantsText.textContent = `${data.count}명`;
+                } else {
+                    console.error("JSON 응답에서 count를 찾을 수 없습니다.", data);
+                }
+            } catch (error) {
+                console.error("JSON 파싱 오류:", error);  // 파싱 오류 출력
             }
         })
         .catch(error => {
