@@ -1,48 +1,40 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     console.log("DOMContentLoaded event triggered");  // 확인 로그
-    loadParticipants();  // 페이지가 로드될 때 호출
     
     const playButton = document.querySelector('.play-button');
     const copyLinkButton = document.getElementById('copy-link-btn');
     const copySuccessMessage = document.getElementById('copy-success');
     const participantsText = document.getElementById('participant-count');
 
-    // 참여자 수 불러오기 (EC2의 PHP 파일을 통해)
-    function loadParticipants() {
-        console.log("Fetching participants data...");  // 함수 호출 확인
-
-        fetch('http://3.35.52.206/update_participants.php')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.count !== undefined) {
-                participantsText.textContent = `${data.count}명`;
-            } else {
-                console.error("JSON 응답에서 count를 찾을 수 없습니다.", data);
-            }
-        })
-        .catch(error => {
-            console.error('참여자 수 불러오기 실패:', error);
-            participantsText.textContent = '불러오기 실패';
-        });
-    }
     // 참여자 수 업데이트 함수
     function updateParticipants() {
-        fetch('http://3.35.52.206/update_participants.php')  // EC2의 PHP 파일 경로
-            .then(response => response.json())
-            .then(data => {
-                participantsText.textContent = `참여자 수 | ${data.count}명`;  // 참여자 수 업데이트
+        fetch('http://3.35.52.206/update_participants.php')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();  // 응답을 텍스트로 받아 문제 확인
             })
-            .catch(error => console.error('참여자 수 업데이트 실패:', error));
+            .then(text => {
+                try {
+                    const data = JSON.parse(text);  // JSON 파싱
+                    if (data.count !== undefined) {
+                        participantsText.textContent = `${data.count}명`;
+                    } else {
+                        console.error("JSON 응답에서 count를 찾을 수 없습니다.", data);
+                    }
+                } catch (parseError) {
+                    console.error("JSON 파싱 에러:", parseError, text);  // 파싱 에러 출력
+                }
+            })
+            .catch(error => {
+                console.error('참여자 수 불러오기 실패:', error);
+                participantsText.textContent = '불러오기 실패';
+            });
     }
 
     // 페이지 로드 시 참여자 수 불러오기
-    loadParticipants();  // 페이지가 로드될 때 호출
+    updateParticipants();
 
     // 시작 버튼 클릭 시 질문 화면으로 이동 및 참여자 수 업데이트
     playButton.addEventListener('click', function() {
@@ -59,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 description: '당신의 쌀 농부 유형은 무엇일까요? 지금 바로 테스트해 보세요!',
                 imageUrl: 'https://ssalbtis3bucket.s3.ap-northeast-2.amazonaws.com/assets/images/BackgroundImage.png',
                 link: {
-                    mobileWebUrl: 'http://3.35.52.206',  // AWS EC2 URL로 설정
+                    mobileWebUrl: 'http://3.35.52.206',
                     webUrl: 'http://3.35.52.206'
                 }
             },
@@ -76,19 +68,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 링크 복사 기능
-    copySuccessMessage.style.display = 'none'; // 처음에 메시지를 숨김
+    copySuccessMessage.style.display = 'none';
 
     copyLinkButton.addEventListener('click', function() {
         const currentUrl = window.location.href;
 
-        // Clipboard API 지원 여부 확인
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(currentUrl)
                 .then(() => {
-                    // 복사 성공 시 메시지를 보여줌
                     copySuccessMessage.style.display = 'flex';
-
-                    // 복사 완료 메시지를 일정 시간 표시
                     setTimeout(() => {
                         copySuccessMessage.style.display = 'none';
                     }, 2000);

@@ -1,7 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
+ini_set('display_errors', 0);  // 오류 표시 끄기 (프로덕션 환경)
 
 require 'vendor/autoload.php';
 
@@ -24,6 +23,8 @@ $s3 = new S3Client([
 $bucket = 'ssalbtis3bucket';
 $key = 'assets/data/participants.json';
 
+header('Content-Type: application/json');
+
 try {
     $s3Result = $s3->getObject([
         'Bucket' => $bucket,
@@ -45,9 +46,7 @@ try {
         'ContentType' => 'application/json'
     ]);
 
-    header('Content-Type: application/json');
     echo json_encode(['count' => $data['count']]);
 } catch (Exception $e) {
     echo json_encode(['error' => $e->getMessage()]);
 }
-?>
