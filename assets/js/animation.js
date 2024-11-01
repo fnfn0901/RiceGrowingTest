@@ -12,17 +12,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadParticipants() {
         console.log("Fetching participants data...");  // 함수 호출 확인
 
-        fetch('http://3.35.52.206/update_participants.php')  // EC2의 PHP 파일 경로
+        fetch('http://3.35.52.206/update_participants.php')
         .then(response => {
-            console.log("Fetch response:", response);  // 응답 확인
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
         .then(data => {
-            console.log("Data:", data);  // 데이터 확인
-            participantsText.textContent = `${data.count}명`;
+            if (data.count !== undefined) {
+                participantsText.textContent = `${data.count}명`;
+            } else {
+                console.error("JSON 응답에서 count를 찾을 수 없습니다.", data);
+            }
         })
         .catch(error => {
             console.error('참여자 수 불러오기 실패:', error);
