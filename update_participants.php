@@ -39,14 +39,12 @@ try {
         $data['count'] = 1;
     }
 
-    $s3->putObject([
-        'Bucket' => $bucket,
-        'Key'    => $key,
-        'Body'   => json_encode($data),
-        'ContentType' => 'application/json'
-    ]);
+    // 디버깅용 로그 추가
+    error_log("JSON 응답 전송: " . json_encode(['count' => $data['count']]));
 
+    header('Content-Type: application/json');
     echo json_encode(['count' => $data['count']]);
 } catch (Exception $e) {
+    error_log("예외 발생: " . $e->getMessage()); // 예외 메시지를 로그에 기록
     echo json_encode(['error' => $e->getMessage()]);
 }

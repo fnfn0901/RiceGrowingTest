@@ -10,10 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateParticipants() {
         fetch('http://3.35.52.206/update_participants.php')
         .then(response => {
+            console.log("응답 헤더:", response.headers.get('content-type')); // 응답 헤더 출력
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.text();  // 응답을 텍스트로 받아 문제 확인
+            return response.text();
         })
         .then(text => {
             console.log("서버 응답 텍스트:", text);  // 응답 텍스트 출력
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.error("JSON 응답에서 count를 찾을 수 없습니다.", data);
                 }
             } catch (parseError) {
-                console.error("JSON 파싱 에러:", parseError, text);  // 파싱 에러 출력
+                console.error("JSON 파싱 에러:", parseError, text);
             }
         })
         .catch(error => {
