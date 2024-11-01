@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOMContentLoaded event triggered");  // 확인 로그
-    
+
     const playButton = document.querySelector('.play-button');
     const copyLinkButton = document.getElementById('copy-link-btn');
     const copySuccessMessage = document.getElementById('copy-success');
     const participantsText = document.getElementById('participant-count');
 
-    // 참여자 수 업데이트 함수
+    // 참여자 수 조회 함수
     function updateParticipants() {
-        fetch('http://3.35.52.206/update_participants.php')
-        .then(response => response.text())  // 우선 텍스트로 응답 받기
+        fetch('http://3.35.52.206/update_participants.php?action=fetch')
+        .then(response => response.text())
         .then(text => {
-            console.log("서버로부터의 응답:", text);  // 텍스트로 응답을 출력하여 JSON 형식인지 확인
+            console.log("서버로부터의 응답 (조회):", text);
 
             try {
                 const data = JSON.parse(text);  // JSON 파싱 시도
@@ -30,16 +30,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 페이지 로드 시 참여자 수 불러오기
+    // 참여자 수 증가 함수
+    function incrementParticipants() {
+        fetch('http://3.35.52.206/update_participants.php?action=increment')
+        .then(response => response.text())
+        .then(text => {
+            console.log("서버로부터의 응답 (증가):", text);
+
+            try {
+                const data = JSON.parse(text);  // JSON 파싱 시도
+                if (data.count !== undefined) {
+                    participantsText.textContent = `${data.count}명`;
+                } else {
+                    console.error("JSON 응답에서 'count'를 찾을 수 없습니다:", data);
+                }
+            } catch (error) {
+                console.error("JSON 파싱 오류:", error, "응답 내용:", text);
+            }
+        })
+        .catch(error => {
+            console.error('참여자 수 증가 실패:', error);
+        });
+    }
+
+    // 페이지 로드 시 참여자 수 조회
     updateParticipants();
 
-    // 시작 버튼 클릭 시 질문 화면으로 이동 및 참여자 수 업데이트
+    // 시작 버튼 클릭 시 질문 화면으로 이동 및 참여자 수 증가
     playButton.addEventListener('click', function() {
-        updateParticipants();  // 참여자 수 업데이트 호출
+        incrementParticipants();  // 참여자 수 증가 호출
         window.location.href = 'question.html'; // 질문 화면 파일로 이동
     });
 
-    // 카카오톡 공유 버튼 클릭 이벤트
+    // 카카오톡 공유 버튼 클릭 이벤트 (원래 코드 유지)
     document.getElementById('kakao-link-btn').addEventListener('click', function() {
         Kakao.Link.sendDefault({
             objectType: 'feed',
@@ -64,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 링크 복사 기능
+    // 링크 복사 기능 (원래 코드 유지)
     copySuccessMessage.style.display = 'none';
 
     copyLinkButton.addEventListener('click', function() {
