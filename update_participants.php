@@ -39,6 +39,14 @@ try {
         $data['count'] = 1;
     }
 
+    // 참여자 수 업데이트
+    $s3->putObject([
+        'Bucket' => $bucket,
+        'Key'    => $key,
+        'Body'   => json_encode($data),
+        'ContentType' => 'application/json',
+    ]);
+
     // 디버깅용 로그 추가
     error_log("JSON 응답 전송: " . json_encode(['count' => $data['count']]));
 
