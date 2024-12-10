@@ -22,6 +22,9 @@ $key = 'assets/data/participants.json';
 // JSON 응답 헤더 설정
 header('Content-Type: application/json');
 
+// 출력 버퍼 시작
+ob_start();
+
 // 요청 매개변수 확인 (참여자 수 조회 또는 증가)
 $action = isset($_GET['action']) ? $_GET['action'] : 'fetch';
 
@@ -60,3 +63,6 @@ try {
     error_log("S3 오류: " . $e->getMessage());
     echo json_encode(['error' => "Failed to fetch data from S3: " . $e->getMessage()]);
 }
+
+// 출력 버퍼 내용만 출력
+ob_end_flush();
