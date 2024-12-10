@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 참여자 수 조회 함수
     function updateParticipants() {
-        fetch('http://3.35.52.206/update_participants.php?action=fetch')
+        fetch('http://13.125.23.77/update_participants.php?action=fetch')
         .then(response => response.text())
         .then(text => {
             console.log("서버로부터의 응답 (조회):", text);
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 참여자 수 증가 함수
     function incrementParticipants() {
-        fetch('http://3.35.52.206/update_participants.php?action=increment')
+        fetch('http://13.125.23.77/update_participants.php?action=increment')
         .then(response => response.text())
         .then(text => {
             console.log("서버로부터의 응답 (증가):", text);
@@ -71,16 +71,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 description: '당신의 쌀 농부 유형은 무엇일까요? 지금 바로 테스트해 보세요!',
                 imageUrl: 'https://ssalbtis3bucket.s3.ap-northeast-2.amazonaws.com/assets/images/BackgroundImage.png',
                 link: {
-                    mobileWebUrl: 'http://3.35.52.206',
-                    webUrl: 'http://3.35.52.206'
+                    mobileWebUrl: 'http://13.125.23.77',
+                    webUrl: 'http://13.125.23.77'
                 }
             },
             buttons: [
                 {
                     title: '테스트하러 가기',
                     link: {
-                        mobileWebUrl: 'http://3.35.52.206',
-                        webUrl: 'http://3.35.52.206'
+                        mobileWebUrl: 'http://13.125.23.77',
+                        webUrl: 'http://13.125.23.77'
                     }
                 }
             ]

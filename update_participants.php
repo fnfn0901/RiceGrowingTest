@@ -3,10 +3,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// AWS 자격 증명을 환경 변수에 직접 설정
-putenv("REMOVED");
-putenv("REMOVED");
-
 // AWS SDK for PHP 로드
 require '/var/www/html/vendor/autoload.php';
 
@@ -17,10 +13,6 @@ use Aws\Exception\AwsException;
 $s3 = new S3Client([
     'version' => 'latest',
     'region'  => 'ap-northeast-2',
-    'credentials' => [
-        'key'    => getenv('AWS_ACCESS_KEY_ID'),
-        'secret' => getenv('AWS_SECRET_ACCESS_KEY'),
-    ],
 ]);
 
 // S3 버킷 정보
