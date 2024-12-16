@@ -1,7 +1,7 @@
 # 쌀 키우기 테스트
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/2693f13a-8291-485c-9582-bfd0fb6023c0" alt="테스트 로고" width="60%">
+  <img src="https://github.com/user-attachments/assets/2693f13a-8291-485c-9582-bfd0fb6023c0" alt="테스트 로고" width="40%">
 </div>
 
 쌀 키우기 테스트는 [스푼랩](http://www.ssalfriends.com/)과의 협업 프로젝트로, ’쌀을 키우는 과정’을 스토리화하여 사용자가 8가지 질문에 답하면, 이를 기반으로 쌀과 관련된 가장 적합한 직업을 추천하는 웹 애플리케이션입니다.
@@ -11,7 +11,7 @@
 ## 최종 화면
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/ed935f07-cd47-42bf-9c67-b784836b04d2" alt="최종 화면" width="80%">
+  <img src="https://github.com/user-attachments/assets/ed935f07-cd47-42bf-9c67-b784836b04d2" alt="최종 화면" width="40%">
 </div>
 
 ## 테스트 링크
