@@ -136,4 +136,4 @@ RiceGrowingTest
 ---
 
 - **성과**:
-    - [쌀키우기 테스트 프로젝트](https://github.com/fnfn0901/SpunPuzzleGame)와 가나다 퍼즐 게임 프로젝트의 성과로 **잇다 서포터즈 6기 활동**에서 **‘우수 서포터즈 표창’**을 수상
+    - [쌀키우기 테스트 프로젝트](https://github.com/fnfn0901/SpunPuzzleGame)와 가나다 퍼즐 게임 프로젝트의 성과로 **잇다 서포터즈 6기 활동**에서 **우수 서포터즈 표창**을 수상
