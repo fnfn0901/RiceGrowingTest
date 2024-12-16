@@ -44,7 +44,7 @@ RiceGrowingTest
 ## 사용된 기술
 
 - **Frontend**
-    - **기술 스택**: ****HTML, CSS, JavaScript
+    - **기술 스택**: HTML, CSS, JavaScript
     - **버전 관리**: Git, GitHub
     - **CI/CD**: GitHub Actions
     - **정적 파일 배포**: AWS S3 (정적 호스팅)
