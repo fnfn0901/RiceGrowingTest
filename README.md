@@ -70,7 +70,7 @@ RiceGrowingTest
 
 ## 도전과제 및 교훈
 
-### 📌 트러블슈팅 사례
+### 📌 트러블슈팅
 
 - **문제**:
     - JavaScript와 PHP 간의 JSON 데이터 통신에서 파싱 오류 발생.
