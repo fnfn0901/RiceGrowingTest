@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>질문 화면</title>
+
+  <link rel="stylesheet" href="./assets/css/question.css" as="style">
+</head>
+<body>
+  <div class="container">
+    <!-- 진행률 창 -->
+    <div class="progress-bar">
+      <img src="./assets/images/emptyHeart.svg" alt="진행률 하트">
+      <img src="./assets/images/emptyHeart.svg" alt="진행률 하트">
+      <img src="./assets/images/emptyHeart.svg" alt="진행률 하트">
+      <img src="./assets/images/emptyHeart.svg" alt="진행률 하트">
+      <img src="./assets/images/emptyHeart.svg" alt="진행률 하트">
+      <img src="./assets/images/emptyHeart.svg" alt="진행률 하트">
+      <img src="./assets/images/emptyHeart.svg" alt="진행률 하트">
+      <img src="./assets/images/emptyHeart.svg" alt="진행률 하트">
+    </div>
+
+    <!-- 이미지 창 -->
+    <div class="image-box">
+      <img src="./assets/images/question/question01.png" alt="질문 이미지" as="style">
+    </div>
+
+    <!-- 질문 창 -->
+    <div class="question-box">
+      <div class="question-text">
+        농사 시작!<br>오늘 첫날인데 무엇을 할까요?
+      </div>
+      <div class="question-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10" fill="none">
+          <path d="M-1.09278e-07 2.5L0 -8.74228e-07L20 0L20 2.5L17.5 2.5L17.5 5L13.75 5L13.75 7.5L11.25 7.5L11.25 10L8.75 10L8.75 7.5L6.25 7.5L6.25 5L2.5 5L2.5 2.5L-1.09278e-07 2.5Z" fill="black"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 선택 A 창 -->
+    <div class="choice choice-a">
+      <img src="./assets/images/unselected.png" alt="선택 A 이미지">
+      <div class="choice-text">
+        A. 일단 이웃들과 친해져야지! 파종 파티를 열어볼까?
+      </div>
+    </div>
+
+    <!-- 선택 B 창 -->
+    <div class="choice choice-b">
+      <img src="./assets/images/unselected.png" alt="선택 B 이미지">
+      <div class="choice-text">
+        B. 여유롭게 논 주변을 천천히 둘러보자.
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./assets/js/question.js"></script>
+</body>
+</html>

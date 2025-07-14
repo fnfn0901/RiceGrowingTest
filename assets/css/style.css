@@ -1,0 +1,201 @@
+@font-face {
+    font-family: 'DOSMyungjo';
+    src: url('../fonts/DOSMyungjo.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Freesentation';
+    src: url('../fonts/Freesentation-5Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Freesentation-4Regular';
+    src: url('../fonts/Freesentation-4Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh; /* 화면 높이를 최소 100%로 설정 */
+    height: 100%; /* 전체 화면을 덮도록 설정 */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DOSMyungjo', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 상단에 위치 */
+    margin-top: 0px;
+    height: 100%; /* height를 auto에서 100%로 설정하여 전체 높이를 차지하게 수정 */
+}
+
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 0px;
+    }
+    
+    .container {
+        margin-top: 0px;
+    }
+}
+
+/* 컴퓨터 화면에서 중앙 정렬 */
+@media (min-width: 769px) {
+    body {
+        justify-content: center;
+    }
+
+    .progress-bar {
+        margin-top: 4.8rem; /* rem으로 변환 */
+    }
+
+    .container {
+        justify-content: center;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.background {
+    width: 23.438rem; /* 375px */
+    min-height: 100vh; /* 최소 높이를 화면 크기로 설정 */
+    height: 100%;
+    background: url('../images/BackgroundImage.png') lightgray -1.908px 0px / 101.018% 100% no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.title-img {
+    width: 21.36rem; /* 341.765px */
+    height: 12.075rem; /* 193.2px */
+    margin-top: 10.56rem; /* 169px */
+    animation: slide-down 1s cubic-bezier(0.5, 1.5, 0.5, 1) forwards;
+}
+
+.play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.6rem; /* 201.6px */
+    padding: 0px 1.26rem; /* 20.16px */
+    border-radius: 0.63rem; /* 10.08px */
+    background: #FFF;
+    box-shadow: 0.25rem 0.19rem 0.25rem rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    margin-top: 7.7rem; /* 123px */
+    gap: 0.75rem; /* 12.1px */
+}
+
+.play-icon {
+    width: 1.76rem; /* 28.224px */
+    height: 1.76rem;
+}
+
+.play-text {
+    color: #A26C1A;
+    font-size: 3rem; /* 48px */
+    font-weight: 500;
+    letter-spacing: 0.75rem; /* 12px */
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #000;
+    font-family: 'DOSMyungjo';
+}
+
+.participants-text {
+    color: #000;
+    font-family: 'Freesentation';
+    font-size: 1.26rem; /* 20.16px */
+    font-weight: 500;
+    margin-top: 1.5rem; /* 24px */
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 9.125rem; /* 146px */
+    margin-top: 1rem; /* 16px */
+    margin-bottom: 9.625rem; /* 154px */
+}
+
+.kakao-icon, .icon {
+    width: 2.27rem; /* 36.288px */
+    height: 2.27rem; /* 이미지가 컨테이너에 맞는지 확인 */
+    overflow: hidden;    /* 원 밖으로 나오는 이미지를 숨김 */
+}
+
+.share-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.share-text {
+    color: #000;
+    font-family: 'Freesentation';
+    font-size: 0.75rem; /* 12.096px */
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0.5rem; /* 8px */
+}
+
+.copy-success {
+    display: none;
+    position: absolute;
+    top: -1rem; /* -16px */
+    left: 50%;
+    transform: translateX(5%);
+    width: 6.25rem; /* 100px */
+    height: 1.875rem; /* 30px */
+    padding: 0.25rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.25rem;
+    border: 0.5px solid #000;
+    background: #FFF;
+    display: flex;
+    z-index: 10;
+}
+
+.copy-check-icon {
+    width: 0.75rem; /* 12px */
+    height: 0.75rem;
+    margin-right: 0.25rem; /* 4px */
+}
+
+.copy-success-text {
+    color: #000;
+    text-align: center;
+    font-family: 'Freesentation-4Regular';
+    font-size: 0.75rem; /* 12px */
+    font-weight: 400;
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-200%);
+    }
+    85% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-0.625rem); /* -10px */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

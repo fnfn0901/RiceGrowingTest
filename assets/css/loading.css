@@ -1,0 +1,231 @@
+@font-face {
+    font-family: 'CookieRun';
+    src: url('../fonts/CookieRun Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'CookieRun', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    body, .container {
+        margin-top: 0px;
+    }
+}
+
+@media (min-width: 769px) {
+    body {
+        justify-content: center;
+    }
+    .progress-bar, .container {
+        margin-top: 4.8rem;
+        justify-content: center;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.background {
+    width: 23.438rem;
+    min-height: 100vh;
+    height: 100%;
+    background: url('../images/loadingBackground.jpg') lightgray -1.908px 0px / 101.018% 100% no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative; /* 부모 요소에 relative 위치 설정 */
+}
+
+.loading-text {
+    color: #000;
+    text-align: center;
+    font-family: 'CookieRun', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    width: 204px;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%); /* 중앙 정렬을 위한 설정 */
+}
+
+/* 좌우로 나풀나풀 흔들리는 애니메이션 */
+@keyframes leafSwing1 {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(800px); /* 원하는 만큼 아래로 이동 */
+    }
+}
+
+@keyframes leafSwing2 {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(1000px); /* 원하는 만큼 아래로 이동 */
+    }
+}
+
+@keyframes leafSwing3 {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(1200px); /* 원하는 만큼 아래로 이동 */
+    }
+}
+
+/* 아이콘 1 공통 설정 및 각기 다른 애니메이션 적용 */
+.icon1 img {
+    width: 66px;
+    height: 66px;
+    position: absolute;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.icon1-1 {
+    top: 143px;
+    left: 75px;
+    animation-name: leafSwing1;
+}
+.icon1-2 {
+    top: 185px;
+    left: 313px;
+    animation-name: leafSwing2;
+}
+.icon1-3 {
+    top: 380px;
+    left: 61px;
+    animation-name: leafSwing3;
+}
+
+/* 아이콘 2 공통 설정 및 각기 다른 애니메이션 적용 */
+.icon2 img {
+    width: 72px;
+    height: 80px;
+    position: absolute;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.icon2-1 {
+    top: 181px;
+    left: -7px;
+    animation-name: leafSwing1;
+}
+.icon2-2 {
+    top: 211px;
+    left: 117px;
+    animation-name: leafSwing2;
+}
+.icon2-3 {
+    top: 243px;
+    left: 233px;
+    animation-name: leafSwing3;
+}
+.icon2-4 {
+    top: 278px;
+    left: 53px;
+    animation-name: leafSwing1;
+}
+.icon2-5 {
+    top: 369px;
+    left: -23px;
+    animation-name: leafSwing2;
+}
+.icon2-6 {
+    top: 388px;
+    left: 184px;
+    animation-name: leafSwing3;
+}
+.icon2-7 {
+    top: 444px;
+    left: 294px;
+    animation-name: leafSwing1;
+}
+.icon2-8 {
+    top: 500px;
+    left: 102px;
+    animation-name: leafSwing2;
+}
+.icon2-9 {
+    top: 595px;
+    left: 262px;
+    animation-name: leafSwing3;
+}
+.icon2-10 {
+    top: 640px;
+    left: 157px;
+    animation-name: leafSwing1;
+}
+
+/* 아이콘 3 공통 설정 및 각기 다른 애니메이션 적용 */
+.icon3 img {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.icon3-1 {
+    top: 218px;
+    left: 245px;
+    animation-name: leafSwing1;
+}
+.icon3-2 {
+    top: 271px;
+    left: 71px;
+    animation-name: leafSwing2;
+}
+.icon3-3 {
+    top: 334px;
+    left: 185px;
+    animation-name: leafSwing3;
+}
+.icon3-4 {
+    top: 365px;
+    left: 302px;
+    animation-name: leafSwing1;
+}
+.icon3-5 {
+    top: 476px;
+    left: 287px;
+    animation-name: leafSwing2;
+}
+.icon3-6 {
+    top: 520px;
+    left: 260px;
+    animation-name: leafSwing3;
+}

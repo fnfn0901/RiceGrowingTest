@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결과 화면</title>
+  <link rel="stylesheet" href="./assets/css/result.css">
+</head>
+<body>
+  <div class="container">
+    <!-- '쌀 키우기로 알아본 나의 직업은?' 텍스트 -->
+    <div class="title-text">
+      쌀 키우기로 알아본<br/>나의 직업은?
+    </div>
+
+    <!-- 직업 이름 -->
+    <div class="job-name">
+      직업 이름
+    </div>
+
+    <!-- 직업 이미지 컨테이너 -->
+    <div class="job-image-container">
+      <img src="" alt="직업 이미지" id="job-image">
+    </div>
+
+    <!-- '꾹 눌러 이미지를 저장해주세요' 텍스트 -->
+    <div class="save-image-text">
+      꾹 눌러 이미지를 저장해주세요
+    </div>
+
+    <!-- 설명 섹션을 하나로 묶는 job-details-wrapper -->
+    <div class="job-details-wrapper">
+      <!-- '# 나의 직업유형' 텍스트 -->
+      <div class="job-type-text">
+        # 나의 직업유형
+      </div>
+
+      <!-- 설명 프레임 -->
+      <div class="job-description-frame">
+        <!-- Lv. 99 텍스트 -->
+        <div class="level-text">
+          <span class="level-prefix">Lv.</span><span class="level-number">99</span>
+        </div>
+
+        <!-- 직업 텍스트 프레임 -->
+        <div class="job-text-frame">
+          <!-- 직업 텍스트 -->
+          <div class="job-label">직업</div>
+        </div>
+
+        <!-- 직업 이름 추가 -->
+        <div class="job-title">
+          쌀 유통 관리사
+        </div>
+
+        <!-- 라인 SVG 추가 -->
+        <div class="line">
+          <svg xmlns="http://www.w3.org/2000/svg" width="250" height="2" viewBox="0 0 250 2" fill="none">
+            <path d="M0.665794 1C0.665794 1.29455 0.904575 1.53333 1.19913 1.53333C1.49368 1.53333 1.73246 1.29455 1.73246 1C1.73246 0.705448 1.49368 0.466667 1.19913 0.466667C0.904575 0.466667 0.665794 0.705448 0.665794 1ZM248.644 1C248.644 1.29455 248.883 1.53333 249.177 1.53333C249.472 1.53333 249.711 1.29455 249.711 1C249.711 0.705448 249.472 0.466667 249.177 0.466667C248.883 0.466667 248.644 0.705448 248.644 1ZM1.19913 1.1H249.177V0.9H1.19913V1.1Z" fill="black"/>
+          </svg>
+        </div>
+
+        <!-- 스탯 창 -->
+        <div class="stat-frame">
+          <div class="stat-bar-container">
+            <span>체력</span>
+            <div class="stat-bar-background">
+              <div class="stat-bar-fill" id="stat-health"></div>
+            </div>
+          </div>
+        
+          <div class="stat-bar-container">
+            <span>창의력</span>
+            <div class="stat-bar-background">
+              <div class="stat-bar-fill" id="stat-creativity"></div>
+            </div>
+          </div>
+        
+          <div class="stat-bar-container">
+            <span>집중력</span>
+            <div class="stat-bar-background">
+              <div class="stat-bar-fill" id="stat-focus"></div>
+            </div>
+          </div>
+        
+          <div class="stat-bar-container">
+            <span>분석력</span>
+            <div class="stat-bar-background">
+              <div class="stat-bar-fill" id="stat-analysis"></div>
+            </div>
+          </div>
+        
+          <div class="stat-bar-container">
+            <span>친화력</span>
+            <div class="stat-bar-background">
+              <div class="stat-bar-fill" id="stat-affinity"></div>
+            </div>
+          </div>
+        
+          <div class="stat-bar-container">
+            <span>행동력</span>
+            <div class="stat-bar-background">
+              <div class="stat-bar-fill" id="stat-activity"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 직업 설명 -->
+      <div class="job-description"></div>
+    </div>
+
+    <div class="best-worst-frame">
+      <!-- 베스트 직업 프레임 -->
+      <div class="best-job-frame">
+        <!-- '베스트' 텍스트 박스 -->
+        <div class="best-text-box">
+          베스트
+        </div>
+        <!-- 베스트 이미지 프레임 -->
+        <div class="best-image-frame"></div>
+        <!-- 베스트 직업 이름 -->
+        <div class="best-job-name">
+          직업 이름
+        </div>
+      </div>
+    
+      <!-- 워스트 직업 프레임 -->
+      <div class="worst-job-frame">
+        <!-- '워스트' 텍스트 박스 -->
+        <div class="worst-text-box">
+          워스트
+        </div>
+        <!-- 워스트 이미지 프레임 -->
+        <div class="worst-image-frame"></div>
+        <!-- 워스트 직업 이름 -->
+        <div class="worst-job-name">
+          직업 이름
+        </div>
+      </div>
+    </div>
+    
+    <div class="other-jobs-frame">
+      <!-- 다른 직업 보기 제목 -->
+      <div class="other-jobs-title">
+        # 다른 직업보기
+      </div>
+    
+      <!-- 직업 묶음 프레임 -->
+      <div class="jobs-wrapper">
+        <img src="./assets/images/SsalMi.png" alt="쌀미 캐릭터" class="center-image">
+        
+        <!-- 직업 아이콘들 -->
+        <div class="job-icon job1" style="background-image: url('./assets/images/result/result01.png');"></div>
+        <div class="job-icon job2" style="background-image: url('./assets/images/result/result02.png');"></div>
+        <div class="job-icon job3" style="background-image: url('./assets/images/result/result03.png');"></div>
+        <div class="job-icon job4" style="background-image: url('./assets/images/result/result04.png');"></div>
+        <div class="job-icon job5" style="background-image: url('./assets/images/result/result05.png');"></div>
+        <div class="job-icon job6" style="background-image: url('./assets/images/result/result06.png');"></div>
+        <div class="job-icon job7" style="background-image: url('./assets/images/result/result07.png');"></div>
+        <div class="job-icon job8" style="background-image: url('./assets/images/result/result08.png');"></div>
+      </div>
+    </div>
+
+    <!-- 이벤트 프레임 -->
+    <div class="event-frame">
+      <!-- 이벤트 제목 -->
+      <div class="event-title">
+        # 쌀 능력자를 위한 이벤트 !
+      </div>
+
+      <!-- 이벤트 이미지 -->
+      <img src="./assets/images/eventImage.png" alt="이벤트 이미지" class="event-image">
+    </div>
+
+    <!-- 테스트 다시하기 버튼 -->
+    <div class="retest-button-container">
+      <div class="retest-content">
+          <span class="retest-text">테스트 다시하기</span>
+          <img src="./assets/images/retestIcon.svg" alt="리셋 아이콘" class="retest-icon">
+      </div>
+    </div>
+
+    <!-- 방문하기 버튼 -->
+    <div class="visit-button-container">
+      <div class="visit-content">
+          <span class="visit-text">스푼랩 방문하기</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.2355 7.71102L2.75 13.368L0.628998 11.954L8.054 7.00401L0.628998 2.05401L2.75 0.640015L11.2355 6.29701C11.5167 6.48454 11.6747 6.73885 11.6747 7.00401C11.6747 7.26918 11.5167 7.52349 11.2355 7.71102Z" fill="#F8F8F8"/>
+          </svg>
+      </div>
+    </div>
+
+  <script type="module" src="./assets/js/result.js"></script>
+</body>
+</html>
